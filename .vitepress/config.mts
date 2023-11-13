@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "wiki",
   description: "rytsh's wiki",
+  base: '/wiki/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
