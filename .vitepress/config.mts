@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from 'vitepress';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -18,6 +18,12 @@ export default defineConfig({
           { text: 'Qemu', link: '/kubernetes/qemu' },
         ],
         collapsed: true
+      },
+      {
+        text: 'Posts',
+        items: [
+          { text: 'Postgres Backup', link: '/posts/postgres-backup' },
+        ],
       }
     ],
 
@@ -27,6 +33,18 @@ export default defineConfig({
 
     editLink: {
       pattern: 'https://github.com/rytsh/wiki/edit/main/:path'
-    }
+    },
+
+    search: {
+      provider: 'local'
+    },
+
+    lastUpdated: {
+      text: 'Updated at',
+      formatOptions: {
+          dateStyle: 'full',
+          timeStyle: 'medium'
+      }
+    },
   }
-})
+});
