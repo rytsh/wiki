@@ -5,10 +5,28 @@ export default defineConfig({
   title: "wiki",
   description: "rytsh's wiki",
   base: '/wiki/',
+  markdown: {
+    theme: 'monokai',
+  },
+  head: [
+    ['link', { rel: 'icon', href: '/logo.png', type: 'image/png' }],
+    [
+      'script',
+      { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=UA-61804270-1' }
+    ],
+    [
+      'script',
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-61804270-1');`
+    ]
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Wiki', link: '/' },
+      { text: `rytsh's wiki`, link: '/' },
     ],
 
     sidebar: [
@@ -22,7 +40,7 @@ export default defineConfig({
       {
         text: 'Posts',
         items: [
-          { text: 'Postgres Backup', link: '/posts/postgres-backup' },
+          { text: 'Postgres Backup', link: '/posts/postgres_backup' },
         ],
       }
     ],

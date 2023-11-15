@@ -1,0 +1,72 @@
+[
+  {
+    "link": "https://github.com/rytsh/turna",
+    "name": "turna",
+    "title": "swiss knife for services"
+  },
+  {
+    "link": "https://github.com/rytsh/mugo",
+    "name": "mugo",
+    "title": "go template executor"
+  },
+  {
+    "link": "https://github.com/worldline-go/pong",
+    "name": "pong",
+    "title": "status checker"
+  },
+  {
+    "link": "https://github.com/rytsh/call",
+    "name": "call",
+    "title": "go dependency injection library"
+  },
+  {
+    "link": "https://github.com/worldline-go/chore",
+    "name": "chore",
+    "title": "run api with control flow"
+  },
+  {
+    "link": "https://github.com/worldline-go/hardloop",
+    "name": "hardloop",
+    "title": "keep function running in specific time ranges"
+  },
+  {
+    "link": "https://github.com/rytsh/scrumik",
+    "name": "scrumik",
+    "title": "scrum poker web application"
+  },
+  {
+    "link": "https://github.com/worldline-go/forward",
+    "name": "forward",
+    "title": "socket to the http"
+  },
+  {
+    "link": "https://repeatit.io",
+    "name": "repeatit",
+    "title": "go template playground"
+  },
+  {
+    "link": "https://rytsh.github.io/tuto3d/",
+    "name": "tuto3d",
+    "title": "examples of 3d web"
+  },
+  {
+    "link": "https://github.com/rytsh/brainit",
+    "name": "brainit",
+    "title": "rune interpreter"
+  },
+  {
+    "link": "https://github.com/rytsh/casset",
+    "name": "casset",
+    "title": "endless linked memory"
+  },
+  {
+    "link": "https://github.com/rytsh/vitesse",
+    "name": "vitesse",
+    "title": "vite + svelte template"
+  },
+  {
+    "link": "https://rytsh.github.io/indigo/",
+    "name": "indigo",
+    "title": "go based json/file server"
+  }
+]
