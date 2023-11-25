@@ -38,9 +38,31 @@ export default defineConfig({
         collapsed: true
       },
       {
+        text: 'Tools',
+        items: [
+          { text: 'Server',
+            items: [
+              { text: 'dhcpd', link: '/tools/server/dhcpd' },
+              { text: 'tftp', link: '/tools/server/tftp' },
+            ],
+            collapsed: true
+          },
+          {
+            text: 'Development',
+            items: [],
+            collapsed: true
+          }
+        ],
+        collapsed: true
+      },
+      {
         text: 'Posts',
         items: [
+          { text: 'Clipboard', link: '/posts/clipboard' },
+          { text: 'Git', link: '/posts/git' },
           { text: 'Postgres Backup', link: '/posts/postgres_backup' },
+          { text: 'Terminal View', link: '/posts/terminal_view' },
+          { text: 'Wsl', link: '/posts/wsl' },
         ],
       }
     ],
