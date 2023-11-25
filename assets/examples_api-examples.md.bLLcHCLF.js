@@ -1,0 +1,16 @@
+import{u as p,o as r,c as i,k as e,t as s,m as t,R as c,a}from"./chunks/framework.Zm4KbpeF.js";const d=c(`<h1 id="runtime-api-examples" tabindex="-1">Runtime API Examples <a class="header-anchor" href="#runtime-api-examples" aria-label="Permalink to &quot;Runtime API Examples&quot;">​</a></h1><p>This page demonstrates usage of some of the runtime APIs provided by VitePress.</p><p>The main <code>useData()</code> API can be used to access site, theme, and page data for the current page. It works in both <code>.md</code> and <code>.vue</code> files:</p><div class="language-md"><button title="Copy Code" class="copy"></button><span class="lang">md</span><pre class="shiki monokai vp-code"><code><span class="line"><span style="color:#F8F8F2;">&lt;script setup&gt;</span></span>
+<span class="line"><span style="color:#F8F8F2;">import { useData } from &#39;vitepress&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F8F8F2;">const { theme, page, frontmatter } = useData()</span></span>
+<span class="line"><span style="color:#F8F8F2;">&lt;/script&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A6E22E;font-weight:bold;">## Results</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A6E22E;font-weight:bold;">### Theme Data</span></span>
+<span class="line"><span style="color:#F8F8F2;">&lt;pre&gt;{{ theme }}&lt;/pre&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A6E22E;font-weight:bold;">### Page Data</span></span>
+<span class="line"><span style="color:#F8F8F2;">&lt;pre&gt;{{ page }}&lt;/pre&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A6E22E;font-weight:bold;">### Page Frontmatter</span></span>
+<span class="line"><span style="color:#F8F8F2;">&lt;pre&gt;{{ frontmatter }}&lt;/pre&gt;</span></span></code></pre></div><h2 id="results" tabindex="-1">Results <a class="header-anchor" href="#results" aria-label="Permalink to &quot;Results&quot;">​</a></h2><h3 id="theme-data" tabindex="-1">Theme Data <a class="header-anchor" href="#theme-data" aria-label="Permalink to &quot;Theme Data&quot;">​</a></h3>`,6),m=e("h3",{id:"page-data",tabindex:"-1"},[a("Page Data "),e("a",{class:"header-anchor",href:"#page-data","aria-label":'Permalink to "Page Data"'},"​")],-1),h=e("h3",{id:"page-frontmatter",tabindex:"-1"},[a("Page Frontmatter "),e("a",{class:"header-anchor",href:"#page-frontmatter","aria-label":'Permalink to "Page Frontmatter"'},"​")],-1),u=e("h2",{id:"more",tabindex:"-1"},[a("More "),e("a",{class:"header-anchor",href:"#more","aria-label":'Permalink to "More"'},"​")],-1),g=e("p",null,[a("Check out the documentation for the "),e("a",{href:"https://vitepress.dev/reference/runtime-api#usedata",target:"_blank",rel:"noreferrer"},"full list of runtime APIs"),a(".")],-1),y=JSON.parse('{"title":"Runtime API Examples","description":"","frontmatter":{"outline":"deep"},"headers":[],"relativePath":"examples/api-examples.md","filePath":"examples/api-examples.md","lastUpdated":1699887634000}'),_={name:"examples/api-examples.md"},k=Object.assign(_,{setup(f){const{site:F,theme:n,page:l,frontmatter:o}=p();return(b,P)=>(r(),i("div",null,[d,e("pre",null,s(t(n)),1),m,e("pre",null,s(t(l)),1),h,e("pre",null,s(t(o)),1),u,g]))}});export{y as __pageData,k as default};
