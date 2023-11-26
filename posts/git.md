@@ -29,14 +29,14 @@ Working for different companies and different projects, sometimes we need to cha
 
 To do that we can add `includeIf` to our `.gitconfig` file.
 
-```conf
+```
 [includeIf "gitdir:~/personal/*/"]
     path = ~/.git/personal
 ```
 
 And create a file `~/.git/personal` and add your user info
 
-```conf
+```
 [user]
     name = Eray Ates
     email = eates23@gmail.com
@@ -113,7 +113,7 @@ GIT_TRACE=1 git commit -s
 You need to add this to your `~/.gnupg/gpg-agent.conf` file
 
 ```sh
-echo "pinentry-program $(which pinentry-curses)" >> ~/.gnupg/gpg-agent.conf
+echo "pinentry-program $(which pinentry-curses)" > ~/.gnupg/gpg-agent.conf
 ```
 
 And you should restart gpg-agent

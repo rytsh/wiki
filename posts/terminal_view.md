@@ -46,6 +46,8 @@ fi
 
 ## Zsh
 
+Useful for macOS.
+
 ```sh
 mkdir -p ~/.zsh
 curl -o ~/.zsh/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh

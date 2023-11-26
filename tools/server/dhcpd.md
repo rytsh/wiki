@@ -23,7 +23,7 @@ Other clients will get IP addresses from the range.
 
 We also setting the hostname for the clients.
 
-```conf
+```
 option domain-name kube-cluster;
 option domain-name-servers 10.10.10.1;
 option subnet-mask 255.255.255.0;
