@@ -57,8 +57,21 @@ export default defineConfig({
         collapsed: true
       },
       {
+        text: 'Development',
+        items: [
+          { text: 'Go',
+            items: [
+              { text: 'Generic Limit', link: '/development/go/generic_limit' },
+            ],
+            collapsed: true
+          },
+        ],
+        collapsed: true
+      },
+      {
         text: 'Posts',
         items: [
+          { text: 'Port', link: '/posts/port' },
           { text: 'Clipboard', link: '/posts/clipboard' },
           { text: 'Git', link: '/posts/git' },
           { text: 'Postgres Backup', link: '/posts/postgres_backup' },
@@ -84,7 +97,7 @@ export default defineConfig({
       text: 'Updated at',
       formatOptions: {
           dateStyle: 'full',
-          timeStyle: 'medium'
+          timeStyle: 'short'
       }
     },
   }
