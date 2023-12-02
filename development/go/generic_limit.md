@@ -31,7 +31,7 @@ func GenericType[T myType]() T {
 ```
 
 Now `T` type should implement `myMethod` method.  
-If you are using interface as type, it is not needed to implementation, just existance of the method is enough because it cannot callable from outside of the package.
+If you are using interface as type, it is not needed to real implementation, just existance of the method is enough because it cannot callable from outside of the package.
 
 I have these interfaces, and `myType` interface embeded to both of them.
 
