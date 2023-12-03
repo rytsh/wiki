@@ -12,7 +12,7 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '/logo.png', type: 'image/png' }],
     [
       'script',
-      { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=UA-61804270-1' }
+      { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-FGF7BPK5Z1' }
     ],
     [
       'script',
@@ -20,7 +20,7 @@ export default defineConfig({
       `window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'UA-61804270-1');`
+      gtag('config', 'G-FGF7BPK5Z1');`
     ]
   ],
   themeConfig: {
