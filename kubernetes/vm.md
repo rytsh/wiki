@@ -13,22 +13,10 @@ https://etcher.balena.io/#download-etcher
 
 Installation is pretty straight forward. Just follow the instructions.
 
-### Management Machine
+### Stop VM in Proxmox
 
-For creating a cluster, first we need a management machine to setup dhcp, pxe, dns, etc.  
-I use `alpine linux` for this. It is a very small linux distro and perfect for this job.  
+Click the shell in browser
 
-First give the iso URL to the proxmox and it will download it.
-
-When creating the virtual machine, give it 2 cores and 1GB of ram.  
-Also give it a 32GB disk but set as SATA disk.
-
-For network, give it 2 network cards. One for the internet and one for the internal network.
-
-And our cluster machines just will be in the internal network.
-
-For creating internal network just create a new bridge and give it a name and leave the gateway empty.
-
-I use to go to internet with the management machine.
-
-I used in dhcpd server `kube-cluster` as domain name so `management.kube-cluster` will be the management machine's hostname.
+```sh
+qm stop <vmid>
+```

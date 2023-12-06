@@ -9,6 +9,7 @@ Check here for more info: https://wiki.archlinux.org/title/dhcpd
 With Alpine linux
 
 ```sh
+# apk update
 apk add dhcp
 ```
 
@@ -34,9 +35,9 @@ subnet 10.10.10.0 netmask 255.255.255.0 {
 
 group {
   #next-server 10.10.10.1;
-  #filename "debian-installer/amd64/bootnetx64.efi";
+  #filename "boot.ipxe";
 
-  #option domain-name "cluster.kube-cluster";
+  option domain-name "cluster.kube-cluster";
 
   host master1.cluster{
     hardware ethernet ba:ba:00:00:11:01;

@@ -116,6 +116,13 @@ You need to add this to your `~/.gnupg/gpg-agent.conf` file
 echo "pinentry-program $(which pinentry-curses)" > ~/.gnupg/gpg-agent.conf
 ```
 
+Also you need to this value
+
+```sh
+echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
+echo 'export GPG_TTY=$(tty)' >> ~/.zshrc
+```
+
 And you should restart gpg-agent
 
 ```sh

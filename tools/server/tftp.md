@@ -3,14 +3,13 @@
 With Alpine Linux
 
 ```sh
+# apk update
 apk add tftp-hpa
 ```
 
 After that add pxe files in /var/tftpboot/
 
-```sh
-curl -fL -o /var/tftpboot/ipxe.efi https://boot.alpinelinux.org/alpine-ipxe/x86_64/ipxe.efi
-```
+Example alpine's `boot.ipxe` file check https://wiki.alpinelinux.org/wiki/Netboot_Alpine_Linux_using_iPXE
 
 And start the tftp server
 

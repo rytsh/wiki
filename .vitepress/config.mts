@@ -35,6 +35,8 @@ export default defineConfig({
         items: [
           { text: 'Qemu', link: '/kubernetes/qemu' },
           { text: 'VM', link: '/kubernetes/vm' },
+          { text: 'Management', link: '/kubernetes/management' },
+          { text: 'Network', link: '/kubernetes/network' },
         ],
         collapsed: true
       },
