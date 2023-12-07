@@ -20,3 +20,11 @@ Click the shell in browser
 ```sh
 qm stop <vmid>
 ```
+
+### IP Address motd change
+
+Make changes in this file
+
+```sh
+vim /etc/issue
+```

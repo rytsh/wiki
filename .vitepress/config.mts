@@ -33,9 +33,18 @@ export default defineConfig({
       {
         text: 'Kubernetes',
         items: [
+          {
+            text: 'Guide',
+            items: [
+              { text: 'Kubeadm', link: '/kubernetes/guide/kubeadm' },
+            ],
+            collapsed: true
+          },
           { text: 'Qemu', link: '/kubernetes/qemu' },
           { text: 'VM', link: '/kubernetes/vm' },
           { text: 'Management', link: '/kubernetes/management' },
+          { text: 'Machine', link: '/kubernetes/machine' },
+          { text: 'Install', link: '/kubernetes/install' },
           { text: 'Network', link: '/kubernetes/network' },
         ],
         collapsed: true
@@ -47,6 +56,8 @@ export default defineConfig({
             items: [
               { text: 'dhcpd', link: '/tools/server/dhcpd' },
               { text: 'tftp', link: '/tools/server/tftp' },
+              { text: 'dns', link: '/tools/server/dns' },
+              { text: 'load_blancer', link: '/tools/server/load_blancer' },
             ],
             collapsed: true
           },

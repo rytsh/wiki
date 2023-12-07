@@ -54,7 +54,7 @@ setup-dns -s kube-cluster
 
 ```sh
 cat /etc/resolv.conf
-search kube-cluster
+search cluster.kube-cluster kube-cluster
 nameserver 192.168.68.1
 ```
 
@@ -97,6 +97,41 @@ Change the motd message.
 ```sh
 vim /etc/motd
 ```
+
+Connect always with SSH after this step.
+
+### SSH Key
+
+Generate ssh key for the management machine.
+
+```sh
+ssh-keygen
+```
+
+> Copy the public key in the `/var/boot` directory we will use it while creating the machines.
+
+### IP Forward
+
+Enable ip forwarding so we can connect to the internet with using this machine from the internal network.
+
+```sh
+echo  net.ipv4.ip_forward = 1 >> /etc/sysctl.conf
+sysctl -p
+sysctl -a | grep net.ipv4.ip_forward
+
+## enable NAT
+apk add iptables
+rc-update add iptables default
+# eth1 is the internal interface
+iptables -A FORWARD -i eth1 -j ACCEPT
+# eth0 is the external interface (connected to the internet)
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+/etc/init.d/iptables save
+```
+
+### DNS
+
+Go and install [coredns](../tools/server/dns).
 
 ### TFTP
 
@@ -163,8 +198,23 @@ We enabled the browse option so we can check the files from the browser.
 
 Go and install [dhcpd](../tools/server/dhcpd) after that setup same as network config.
 
+### Load Balancer
+
+Go and install [haproxy](../tools/server/load_balancer).
+
 ## Add machines to the cluster
 
 Create new machine but just give 1 network for internal bridge and set mac address manually based on DHCPD config.
 
 When we setup the correctly tftpd and dhcpd, we can see the ipxe will work and we can see the alpine linux boot screen.
+
+## Install Tools
+
+kubectl install in with edge repository.
+
+```sh
+echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
+apk update
+
+apk add kubectl
+```
