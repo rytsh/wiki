@@ -8,7 +8,7 @@ next: false
 # Wiki
 
 I am Eray and this my personal wiki.
-It's a collection of notes on various topics that I find interesting.
+It's a collection of notes on various topics that I want to remember.
 
 > This website always work in progress.
 

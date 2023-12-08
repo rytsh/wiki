@@ -6,7 +6,7 @@ export default defineConfig({
   description: "rytsh's wiki",
   base: '/wiki/',
   markdown: {
-    theme: 'monokai',
+    theme: 'material-theme',
   },
   head: [
     ['link', { rel: 'icon', href: '/logo.png', type: 'image/png' }],
@@ -31,25 +31,6 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Kubernetes',
-        items: [
-          {
-            text: 'Guide',
-            items: [
-              { text: 'Kubeadm', link: '/kubernetes/guide/kubeadm' },
-            ],
-            collapsed: true
-          },
-          { text: 'Qemu', link: '/kubernetes/qemu' },
-          { text: 'VM', link: '/kubernetes/vm' },
-          { text: 'Management', link: '/kubernetes/management' },
-          { text: 'Machine', link: '/kubernetes/machine' },
-          { text: 'Install', link: '/kubernetes/install' },
-          { text: 'Network', link: '/kubernetes/network' },
-        ],
-        collapsed: true
-      },
-      {
         text: 'Tools',
         items: [
           { text: 'Server',
@@ -57,21 +38,37 @@ export default defineConfig({
               { text: 'dhcpd', link: '/tools/server/dhcpd' },
               { text: 'tftp', link: '/tools/server/tftp' },
               { text: 'dns', link: '/tools/server/dns' },
-              { text: 'load_blancer', link: '/tools/server/load_blancer' },
+              { text: 'load_balancer', link: '/tools/server/load_balancer' },
             ],
             collapsed: true
           },
-          {
-            text: 'Development',
-            items: [],
-            collapsed: true
-          }
         ],
         collapsed: true
       },
       {
         text: 'Development',
         items: [
+          {
+            text: 'Kubernetes',
+            items: [
+              {
+                text: 'Guide',
+                items: [
+                  { text: 'Kubeadm', link: '/development/kubernetes/guide/kubeadm' },
+                  { text: 'Intro', link: '/development/kubernetes/guide/intro' },
+                  { text: 'Core', link: '/development/kubernetes/guide/core' },
+                ],
+                collapsed: true
+              },
+              { text: 'Qemu', link: '/development/kubernetes/qemu' },
+              { text: 'VM', link: '/development/kubernetes/vm' },
+              { text: 'Management', link: '/development/kubernetes/management' },
+              { text: 'Machine', link: '/development/kubernetes/machine' },
+              { text: 'Install', link: '/development/kubernetes/install' },
+              { text: 'Network', link: '/development/kubernetes/network' },
+            ],
+            collapsed: true
+          },
           { text: 'Go',
             items: [
               { text: 'Generic Limit', link: '/development/go/generic_limit' },
