@@ -131,11 +131,11 @@ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
 ### DNS
 
-Go and install [coredns](../tools/server/dns).
+Go and install [coredns](/tools/server/dns).
 
 ### TFTP
 
-Go and install [tftp](../tools/server/tftp).
+Go and install [tftp](/tools/server/tftp).
 
 https://wiki.alpinelinux.org/wiki/Netboot_Alpine_Linux_using_iPXE
 
@@ -196,11 +196,11 @@ We enabled the browse option so we can check the files from the browser.
 
 ### DHCPD
 
-Go and install [dhcpd](../tools/server/dhcpd) after that setup same as network config.
+Go and install [dhcpd](/tools/server/dhcpd) after that setup same as network config.
 
 ### Load Balancer
 
-Go and install [haproxy](../tools/server/load_balancer).
+Go and install [haproxy](/tools/server/load_balancer).
 
 ## Add machines to the cluster
 
