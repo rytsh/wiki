@@ -81,6 +81,7 @@ export default defineConfig({
       {
         text: 'Posts',
         items: [
+          { text: 'Certificate', link: '/posts/certificate' },
           { text: 'Port', link: '/posts/port' },
           { text: 'Clipboard', link: '/posts/clipboard' },
           { text: 'Git', link: '/posts/git' },
