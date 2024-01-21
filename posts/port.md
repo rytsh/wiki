@@ -1,8 +1,42 @@
 # Port
 
-`1-65535` avaliable ports and in range `1-1023` are the privileged ones.
+## Port Forwarding Windows
+
+> To do that you need to run command prompt as administrator.
+
+Add port forwarding rule.
+
+```sh
+netsh.exe interface portproxy add v4tov4 listenport=8080 listenaddress=192.168.1.10 connectport=8080 connectaddress=172.16.10.10
+```
+
+Show port forwarding rules.
+
+```sh
+netsh.exe interface portproxy show all
+```
+
+Delete port forwarding rule.
+
+```sh
+netsh.exe interface portproxy delete v4tov4 listenport=8080 listenaddress=192.168.1.10
+```
+
+## Port Forwarding SSH
+
+```sh
+ssh -nNT -L 5858:localhost:5757 remotehost
+```
+
+Now request to `localhost:5858` will be forwarded to `localhost:5757` of the remote machine.
+
+Use `-R` instead of `-L` to reverse the direction of the tunnel.
+
+In remote host, request to `localhost:5858` will be forwarded to `localhost:5757` of the local machine.
 
 ## Enable 1-1023 ports
+
+`1-65535` avaliable ports and in range `1-1023` are the privileged ones.
 
 Give permisstion to run below 1024 port number.
 

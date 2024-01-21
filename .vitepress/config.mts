@@ -75,6 +75,12 @@ export default defineConfig({
             ],
             collapsed: true
           },
+          {
+            text: 'Rust',
+            items: [
+              { text: 'Intro', link: '/development/rust/intro' },
+            ],
+          }
         ],
         collapsed: true
       },
