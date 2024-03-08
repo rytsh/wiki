@@ -87,6 +87,7 @@ export default defineConfig({
       {
         text: 'Posts',
         items: [
+          { text: 'Rebase Container', link: '/posts/rebase_container' },
           { text: 'Nerd Fonts', link: '/posts/nerd_fonts' },
           { text: 'SSH Tunnel', link: '/posts/ssh_tunnel' },
           { text: 'Github Actions', link: '/posts/github_actions' },
