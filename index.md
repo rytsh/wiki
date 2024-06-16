@@ -14,6 +14,8 @@ It's a collection of notes on various topics that I want to remember.
 
 ## Posts in other sites
 
+- [Struct in runtime](https://medium.com/@rytsh/struct-in-runtime-e3759559c953)
+- [Crane with trivy](https://medium.com/@rytsh/crane-trivy-c4898224723)
 - [Dependency injection library](https://medium.com/@rytsh/go-dependency-injection-with-call-16336b623328)
 - [Requests with control-flows, explanation](https://dev.to/rytsh/chore-control-flow-requests-5b0c)
 - [Share docker socket to http rest with some filtering](https://dev.to/rytsh/share-docker-socket-to-http-rest-with-some-filtering-38m5)
