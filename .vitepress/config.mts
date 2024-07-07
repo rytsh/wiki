@@ -87,6 +87,8 @@ export default defineConfig({
       {
         text: 'Posts',
         items: [
+          { text: 'Bucket Go', link: '/posts/bucket_go' },
+          { text: 'Git Changes', link: '/posts/git_changes' },
           { text: 'Rebase Container', link: '/posts/rebase_container' },
           { text: 'Nerd Fonts', link: '/posts/nerd_fonts' },
           { text: 'SSH Tunnel', link: '/posts/ssh_tunnel' },
