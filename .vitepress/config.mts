@@ -87,6 +87,7 @@ export default defineConfig({
       {
         text: 'Posts',
         items: [
+          { text: 'Fake Time', link: '/posts/fake_time' },
           { text: 'Bucket Go', link: '/posts/bucket_go' },
           { text: 'Git Changes', link: '/posts/git_changes' },
           { text: 'Rebase Container', link: '/posts/rebase_container' },
