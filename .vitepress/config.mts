@@ -4,7 +4,9 @@ import { defineConfig } from 'vitepress';
 export default defineConfig({
   title: "wiki",
   description: "rytsh's wiki",
-  base: '/wiki/',
+  sitemap: {
+    hostname: 'https://wiki.rytsh.io'
+  },
   markdown: {
     theme: 'material-theme',
   },
