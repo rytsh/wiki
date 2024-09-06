@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: When gets buch of data processing with goroutines, it's better to create buckets and them process them concurrently.
+  - - meta
+    - name: keywords
+      content: golang concurrency goroutine bucket
+---
+
 # Bucket Golang Concurrency
 
 When gets buch of data processing with goroutines, it's better to create buckets and them process them concurrently.

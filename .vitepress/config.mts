@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "wiki",
+  titleTemplate: false,
   description: "rytsh's wiki",
   sitemap: {
     hostname: 'https://wiki.rytsh.io'
@@ -28,7 +29,7 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: `rytsh's wiki`, link: '/' },
+      // { text: `rytsh`, link: 'https://rytsh.io' },
     ],
 
     sidebar: [
@@ -110,6 +111,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
+      { icon: 'linkedin', link: 'https://www.linkedin.com/in/rytsh/' },
       { icon: 'github', link: 'https://github.com/rytsh' }
     ],
 

@@ -1,15 +1,25 @@
-# DIND
+---
+head:
+  - - meta
+    - name: description
+      content: Docker in Docker (DinD) is a method to run Docker inside a Docker container. This is useful when you want to run containers in your CI/CD pipelines.
+  - - meta
+    - name: keywords
+      content: dind docker-in-docker gitlab testcontainers
+---
 
-Docker in Docker (DIND) is a method to run Docker inside a Docker container. This is useful when you want to run containers in your CI/CD pipelines.
+# DinD
 
-For example, you can use DIND in your CI/CD pipelines to up databases, run tests, and clean up the environment.
+Docker in Docker (DinD) is a method to run Docker inside a Docker container. This is useful when you want to run containers in your CI/CD pipelines.
 
-Most important thing you need to remember. When you create container and mapped a port than that port is mapping to DIND host.
-So you need to use always that DIND host address to reach that port.
+For example, you can use DinD in your CI/CD pipelines to up databases, run tests, and clean up the environment.
 
-> `TESTCONTAINERS_HOST_OVERRIDE` is a good way to set the DIND host address.
+Most important thing you need to remember. When you create container and mapped a port than that port is mapping to DinD host.
+So you need to use always that DinD host address to reach that port.
 
-DIND is base container of docker.
+> `TESTCONTAINERS_HOST_OVERRIDE` is a good way to set the DinD host address.
+
+DinD is base container of docker.
 
 ```sh
 # default is alpine version
