@@ -40,7 +40,7 @@ jobs:
           pnpm install --prefer-offline && pnpm run docs:build
       # publish page
       - name: deploy
-        uses: peaceiris/actions-gh-pages@@v4
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./.vitepress/dist
