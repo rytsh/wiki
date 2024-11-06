@@ -90,6 +90,7 @@ export default defineConfig({
       {
         text: 'Posts',
         items: [
+          { text: 'Makefile', link: '/posts/makefile' },
           { text: 'DinD', link: '/posts/dind' },
           { text: 'Test Containers', link: '/posts/test_containers' },
           { text: 'Fake Time', link: '/posts/fake_time' },
