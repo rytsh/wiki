@@ -10,7 +10,7 @@ next: false
 I am Eray and this my personal wiki.
 It's a collection of notes on various topics that I want to remember.
 
-> This website always work in progress.
+> Support rytsh's open source work on [GitHub Sponsor 🍻](https://github.com/sponsors/rytsh?o=esb)
 
 ## Posts in other sites
 
