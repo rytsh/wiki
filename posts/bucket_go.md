@@ -10,6 +10,8 @@ head:
 
 # Bucket Golang Concurrency
 
+> Check library in here https://github.com/rakunlabs/bucket
+
 When gets buch of data processing with goroutines, it's better to create buckets and them process them concurrently.
 
 First we need to process count and minimal size of each bucket.
