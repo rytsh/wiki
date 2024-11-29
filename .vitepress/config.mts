@@ -90,6 +90,7 @@ export default defineConfig({
       {
         text: 'Posts',
         items: [
+          { text: 'DHCP Windows', link: '/posts/dhcp_windows' },
           { text: 'Option Pattern', link: '/posts/option_pattern' },
           { text: 'Makefile', link: '/posts/makefile' },
           { text: 'DinD', link: '/posts/dind' },
