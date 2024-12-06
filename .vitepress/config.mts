@@ -91,6 +91,7 @@ export default defineConfig({
       {
         text: 'Posts',
         items: [
+          { text: 'Gitlab Pipeline', link: '/posts/gitlab_pipeline' },
           { text: 'Error 502', link: '/posts/error_502' },
           { text: 'Traefik 503', link: '/posts/traefik_503' },
           { text: 'DHCP Windows', link: '/posts/dhcp_windows' },
