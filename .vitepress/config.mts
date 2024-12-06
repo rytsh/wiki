@@ -91,6 +91,8 @@ export default defineConfig({
       {
         text: 'Posts',
         items: [
+          { text: 'Error 502', link: '/posts/error_502' },
+          { text: 'Traefik 503', link: '/posts/traefik_503' },
           { text: 'DHCP Windows', link: '/posts/dhcp_windows' },
           { text: 'Option Pattern', link: '/posts/option_pattern' },
           { text: 'Makefile', link: '/posts/makefile' },
