@@ -68,6 +68,7 @@ export default defineConfig({
                     {text: 'certs', link: '/development/kubernetes/cluster/certs'},
                     {text: 'dns', link: '/development/kubernetes/cluster/dns'},
                     {text: 'proxy', link: '/development/kubernetes/cluster/proxy'},
+                    {text: 'headlamp', link: '/development/kubernetes/cluster/headlamp'},
                 ]
               },
               {
