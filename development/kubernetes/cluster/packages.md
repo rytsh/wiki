@@ -97,5 +97,5 @@ EOF
 Test with curl in kind container
 
 ```sh
-curl -kv --connect-to grafana.kube.com:443:10.0.10.0:443 https://grafana.kube.com
+curl -kv --connect-to grafana.kube.com:443:10.0.10.1:443 https://grafana.kube.com
 ```

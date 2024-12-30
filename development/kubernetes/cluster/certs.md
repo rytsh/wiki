@@ -7,6 +7,15 @@ helm repo add jetstack https://charts.jetstack.io
 ```
 
 ```sh
+cat <<EOF | grep -v '^[[:space:]]*$' | xargs -I {} sh -c 'docker pull {} && kind load docker-image {}'
+quay.io/jetstack/cert-manager-cainjector:v1.16.2
+quay.io/jetstack/cert-manager-controller:v1.16.2
+quay.io/jetstack/cert-manager-startupapicheck:v1.16.2
+quay.io/jetstack/cert-manager-webhook:v1.16.2
+EOF
+```
+
+```sh
 helm install cert-manager jetstack/cert-manager \
   --create-namespace \
   --namespace cert-manager \

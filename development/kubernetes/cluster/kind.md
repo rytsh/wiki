@@ -43,6 +43,8 @@ nodes:
 networking:
   disableDefaultCNI: true
   kubeProxyMode: "none"
+  podSubnet: "10.2.0.0/16"
+  serviceSubnet: "10.3.0.0/16"
 EOF
 ```
 
@@ -55,12 +57,10 @@ kind create cluster --config=kind-config.yaml
 Install gateway CRDs to kubernetes cluster.
 
 ```sh
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/v1.1.0/config/crd/standard/gateway.networking.k8s.io_gatewayclasses.yaml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/v1.1.0/config/crd/standard/gateway.networking.k8s.io_gateways.yaml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/v1.1.0/config/crd/standard/gateway.networking.k8s.io_httproutes.yaml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/v1.1.0/config/crd/standard/gateway.networking.k8s.io_referencegrants.yaml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/v1.1.0/config/crd/standard/gateway.networking.k8s.io_grpcroutes.yaml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/v1.1.0/config/crd/experimental/gateway.networking.k8s.io_tlsroutes.yaml
+# https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.2.1/experimental-install.yaml
+# https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.2.1/standard-install.yaml
+
+kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.2.1/standard-install.yaml
 ```
 
 Install cilium:
@@ -108,9 +108,17 @@ helm install cilium cilium/cilium --version 1.16.5 \
   --set gatewayAPI.enabled=true \
   --set k8sServiceHost=kind-control-plane \
   --set k8sServicePort=6443 \
+  --set bpf.masquerade=true \
+  --set bpf.hostLegacyRouting=true \
+  --set bgpControlPlane.enabled=true \
+  --set bgp.announce.loadbalancerIP=true \
+  --set l2announcements.enabled=true \
+  --set externalIPs.enabled=true \
+  --set l7Proxy=true \
   --set kubeProxyReplacement=true \
   --set hubble.relay.enabled=true \
-  --set hubble.ui.enabled=true
+  --set hubble.ui.enabled=true \
+  --set operator.replicas=1
 ```
 
 After that set replicas 1 to cilium operator
@@ -208,7 +216,8 @@ metadata:
   name: "pool"
 spec:
   blocks:
-  - cidr: "10.0.10.0/24"
+  - start: "10.0.10.1"
+    stop: "10.0.10.100"
 EOF
 ```
 

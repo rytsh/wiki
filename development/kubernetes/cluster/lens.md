@@ -1,5 +1,7 @@
 # Lens
 
+> Try another tool like `k9s` or `headlamp`.
+
 Lens is awesome UI for kubernetes but new versions are not free so we use some comminity version on github.
 
 > https://github.com/MuhammedKalkan/OpenLens
