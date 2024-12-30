@@ -104,14 +104,15 @@ sudo systemctl restart docker
 helm install cilium cilium/cilium --version 1.16.5 \
   --namespace kube-system \
   --set ipam.mode=kubernetes \
+  --set routingMode=native \
+  --set ipv4NativeRoutingCIDR=10.0.0.0/8 \
+  --set socketLB.enabled=true \
+  --set bpf.tproxy=true \
+  --set bpf.masquerade=true \
   --set image.pullPolicy=IfNotPresent \
   --set gatewayAPI.enabled=true \
   --set k8sServiceHost=kind-control-plane \
   --set k8sServicePort=6443 \
-  --set bpf.masquerade=true \
-  --set bpf.hostLegacyRouting=true \
-  --set bgpControlPlane.enabled=true \
-  --set bgp.announce.loadbalancerIP=true \
   --set l2announcements.enabled=true \
   --set externalIPs.enabled=true \
   --set l7Proxy=true \

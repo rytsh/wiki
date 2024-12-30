@@ -79,6 +79,12 @@ kubectl describe certificates.cert-manager.io kube-com-tls
 #    kube.com
 ```
 
+## Get CA certificate
+
+```sh
+kubectl get secrets ca -o jsonpath='{.data.tls\.crt}' | base64 -d > ~/ca.crt
+```
+
 # mkcert
 
 > Use cert manager for better management of certificates.

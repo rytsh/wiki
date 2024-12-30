@@ -59,12 +59,15 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                     {text: 'kind', link: '/development/kubernetes/cluster/kind'},
+                    {text: 'registry', link: '/development/kubernetes/cluster/registry'},
                     {text: 'kubectl', link: '/development/kubernetes/cluster/kubectl'},
                     {text: 'lens', link: '/development/kubernetes/cluster/lens'},
                     {text: 'kustomize', link: '/development/kubernetes/cluster/kustomize'},
                     {text: 'helm', link: '/development/kubernetes/cluster/helm'},
                     {text: 'packages', link: '/development/kubernetes/cluster/packages'},
                     {text: 'certs', link: '/development/kubernetes/cluster/certs'},
+                    {text: 'dns', link: '/development/kubernetes/cluster/dns'},
+                    {text: 'proxy', link: '/development/kubernetes/cluster/proxy'},
                 ]
               },
               {

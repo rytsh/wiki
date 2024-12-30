@@ -1,0 +1,23 @@
+# Proxy Socks5
+
+To reach with socks5 proxy.
+
+```yaml
+server:
+  entrypoints:
+    socks5:
+      address: ":1080"
+  tcp:
+    middlewares:
+      socks5:
+        socks5:
+          no_auth_authenticator: true
+          ip_map:
+            "*.kube.com": "10.0.10.1"
+    routers:
+      socks5:
+        entrypoints:
+          - socks5
+        middlewares:
+          - socks5
+```

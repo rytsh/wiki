@@ -1,5 +1,8 @@
 # Core DNS
 
+> This is very complex solution due to under the some another network and DNS return that specific network's IP address.  
+> Use `Turna`'s solution for that.
+
 Setup a core DNS server locally to reach all of our gateways without any problem.
 
 In here we transfer all DNS solution of `*.kube.com` to our cilium gateway which is `10.0.10.0`.  
@@ -51,7 +54,7 @@ cat <<EOF > kube.com
     3600       ; minimum (1 hour)
     )
 
-*     IN A     10.0.10.0
+*     IN A     10.0.10.1
 EOF
 ```
 
@@ -74,23 +77,4 @@ sudo apt install knot-dnsutils
 
 ```sh
 kdig -d @localhost -p 5553 +tls-ca=/rootCA.pem +tls-hostname=localhost wikipedia.org
-```
-
-## Forward 10.0.10.0/24 to cilium
-
-> TODO Still checking
-
-First we need to forward all traffic to cilium gateway.
-
-Do it in node:
-
-```sh
-ip route add 10.0.10.0/24 via $(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')
-sysctl -w net.ipv4.ip_forward=1
-```
-
-Second we need to tell in our local machine to forward all traffic to that machine.
-
-```sh
-ip route add 10.0.10.0/24 via $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' kind-control-plane)
 ```
