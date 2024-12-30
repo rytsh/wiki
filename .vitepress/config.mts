@@ -107,6 +107,7 @@ export default defineConfig({
       {
         text: 'Posts',
         items: [
+          { text: 'SSH over HTTPS', link: '/posts/ssh_https' },
           { text: 'Gitlab Pipeline', link: '/posts/gitlab_pipeline' },
           { text: 'Error 502', link: '/posts/error_502' },
           { text: 'Traefik 503', link: '/posts/traefik_503' },
