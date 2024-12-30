@@ -2,7 +2,8 @@
 
 To reach with socks5 proxy.
 
-```yaml
+```sh
+cat <<EOF | sudo tee /opt/kube-proxy.yaml
 server:
   entrypoints:
     socks5:
@@ -20,4 +21,16 @@ server:
           - socks5
         middlewares:
           - socks5
+EOF
 ```
+
+```sh
+docker run -d --restart=always \
+--name kube-proxy \
+--network kind \
+-p 1080:1080 \
+-v /opt/kube-proxy.yaml:/turna.yaml \
+ghcr.io/rakunlabs/turna:v0.7.12
+```
+
+To Access socks5 proxy, in firefox there is a good extension called `FoxyProxy` and add there with `localhost:1080`
