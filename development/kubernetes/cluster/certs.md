@@ -3,19 +3,11 @@
 Auto generate certificates for Kubernetes.
 
 ```sh
-helm repo add jetstack https://charts.jetstack.io
-```
+echo "> Add cert-manager repo"
+helm repo add jetstack https://charts.jetstack.io || true
+helm repo update
 
-```sh
-cat <<EOF | grep -v '^[[:space:]]*$' | xargs -I {} sh -c 'docker pull {} && kind load docker-image {}'
-quay.io/jetstack/cert-manager-cainjector:v1.16.2
-quay.io/jetstack/cert-manager-controller:v1.16.2
-quay.io/jetstack/cert-manager-startupapicheck:v1.16.2
-quay.io/jetstack/cert-manager-webhook:v1.16.2
-EOF
-```
-
-```sh
+echo "> Install cert-manager"
 helm install cert-manager jetstack/cert-manager \
   --create-namespace \
   --namespace cert-manager \
@@ -23,21 +15,52 @@ helm install cert-manager jetstack/cert-manager \
   --set config.kind="ControllerConfiguration" \
   --set crds.enabled=true \
   --set config.enableGatewayAPI=true
-```
 
-Create CA issuer
+kubectl create namespace kube-gateway
 
-```sh
-kubectl apply -f https://raw.githubusercontent.com/cilium/cilium/1.16.5/examples/kubernetes/servicemesh/ca-issuer.yaml
-```
+echo "> Create CA Cluster Issuer"
+cat <<EOF | kubectl apply -f -
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: self-signed
+  namespace: kube-gateway
+spec:
+  selfSigned: {}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: ca
+  namespace: kube-gateway
+spec:
+  isCA: true
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+  secretName: ca
+  commonName: ca
+  issuerRef:
+    name: self-signed
+    kind: Issuer
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: ca-issuer
+  namespace: kube-gateway
+spec:
+  ca:
+    secretName: ca
+EOF
 
-```sh
+echo "> Add *.kube.com address gateway"
 cat <<EOF | kubectl apply -f -
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   name: kube
-  namespace: default
+  namespace: kube-gateway
   annotations:
     cert-manager.io/issuer: ca-issuer
 spec:
@@ -65,6 +88,25 @@ spec:
         mode: Terminate
         certificateRefs:
           - name: kube-com-tls
+EOF
+
+echo "> Add proxy address gateway"
+cat <<EOF | kubectl apply -f -
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: kube-proxy
+  namespace: kube-gateway
+spec:
+  gatewayClassName: cilium
+  listeners:
+    - name: kube-proxy
+      hostname: "proxy"
+      port: 80
+      protocol: HTTP
+      allowedRoutes:
+        namespaces:
+          from: All
 EOF
 ```
 

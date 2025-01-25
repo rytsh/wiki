@@ -2,6 +2,8 @@
 
 Cilum is general networking solution makes load balancer, firewall, etc.
 
+> Before to install cilium check [pre-request](./prerequest.md) for kernel.
+
 CLI installation
 
 ```sh
@@ -20,6 +22,50 @@ Show status of kubernetes cluster, if you have cilium installed.
 
 ```sh
 cilium status --wait
+```
+
+Install cilium script
+
+```sh
+echo "> Installing CRDs"
+kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.2.1/experimental-install.yaml
+
+echo "> Add helm Cilium repo"
+# add helm repo if not already added
+helm repo add cilium https://helm.cilium.io/ || true
+helm repo update
+
+echo "> Install Cilium"
+helm install cilium cilium/cilium --version 1.16.6 \
+  --namespace kube-system \
+  --set ipam.mode=kubernetes \
+  --set socketLB.enabled=true \
+  --set bpf.tproxy=true \
+  --set bpf.masquerade=true \
+  --set image.pullPolicy=IfNotPresent \
+  --set gatewayAPI.enabled=true \
+  --set k8sServiceHost=kind-control-plane \
+  --set k8sServicePort=6443 \
+  --set l7Proxy=true \
+  --set kubeProxyReplacement=true \
+  --set hubble.relay.enabled=true \
+  --set hubble.ui.enabled=true \
+  --set operator.replicas=1
+
+echo "> Wait cilium is ready"
+cilium status --wait
+
+echo "> Set load balancer IPs"
+cat <<EOF | kubectl apply -f -
+apiVersion: "cilium.io/v2alpha1"
+kind: CiliumLoadBalancerIPPool
+metadata:
+  name: "pool"
+spec:
+  blocks:
+  - start: "10.0.10.1"
+    stop: "10.0.10.100"
+EOF
 ```
 
 Check status details
@@ -43,40 +89,6 @@ Install experimental CRDs
 
 kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.2.1/experimental-install.yaml
 ```
-
-## Modules
-
-`tproxy` module is used for transparent proxying.  
-In `WSL2` not exist yet this module but use a patched kernel to use it.
-
-Get existing kernel from https://github.com/Locietta/xanmod-kernel-WSL2
-
-<details><summary>Kernel Build</summary>
-
-Clone microsoft kernel and compile it.
-
-```sh
-git clone https://github.com/microsoft/WSL2-Linux-Kernel.git --depth=1 -b linux-msft-wsl-6.6.y
-sudo apt update && sudo apt install build-essential flex bison libssl-dev libelf-dev bc python3 pahole cpio bc libncurses-dev pkg-config
-
-cd WSL2-Linux-Kernel
-make -j$(nproc) KCONFIG_CONFIG=Microsoft/config-wsl
-sudo make modules_install headers_install
-cp arch/x86_64/boot/bzImage /mnt/c/tools/kernel/bzImage
-```
-
-</details>
-
-Edit `/mnt/c/Users/<username>/.wslconfig`
-
-```
-[wsl2]
-kernel = C:\\tools\\kernel\\bzImage-x64v3
-kernelCommandLine = cgroup_no_v1=all
-```
-
-`wsl.exe --shutdown` and restart WSL2.  
-`uname -a` to show kernel version.
 
 ## Issues
 
@@ -154,23 +166,4 @@ mkdir -p /root/.config/termshark/
 echo -e "[main]\ndark-mode = true" > /root/.config/termshark/termshark.toml
 
 TERM=xterm-256color termshark -r arp.pcap
-```
-
-## Forward 10.0.10.0/24 to cilium
-
-> TODO Still checking
-
-First we need to forward all traffic to cilium gateway.
-
-Do it in node:
-
-```sh
-# ip route add 10.0.10.0/24 via $(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')
-sysctl -w net.ipv4.ip_forward=1
-```
-
-Second we need to tell in our local machine to forward all traffic to that machine.
-
-```sh
-ip route add 10.0.10.0/24 via $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' kind-control-plane)
 ```
