@@ -1,0 +1,112 @@
+import{_ as a,c as n,a2 as l,o as e}from"./chunks/framework.BQmytedh.js";const C=JSON.parse('{"title":"Cert Manager","description":"","frontmatter":{},"headers":[],"relativePath":"development/kubernetes/cluster/certs.md","filePath":"development/kubernetes/cluster/certs.md","lastUpdated":1737798836000}'),p={name:"development/kubernetes/cluster/certs.md"};function o(t,s,c,r,i,y){return e(),n("div",null,s[0]||(s[0]=[l(`<h1 id="cert-manager" tabindex="-1">Cert Manager <a class="header-anchor" href="#cert-manager" aria-label="Permalink to &quot;Cert Manager&quot;">​</a></h1><p>Auto generate certificates for Kubernetes.</p><div class="language-sh"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki material-theme vp-code" tabindex="0"><code><span class="line"><span style="color:#82AAFF;">echo</span><span style="color:#89DDFF;"> &quot;</span><span style="color:#C3E88D;">&gt; Add cert-manager repo</span><span style="color:#89DDFF;">&quot;</span></span>
+<span class="line"><span style="color:#FFCB6B;">helm</span><span style="color:#C3E88D;"> repo</span><span style="color:#C3E88D;"> add</span><span style="color:#C3E88D;"> jetstack</span><span style="color:#C3E88D;"> https://charts.jetstack.io</span><span style="color:#89DDFF;"> ||</span><span style="color:#82AAFF;"> true</span></span>
+<span class="line"><span style="color:#FFCB6B;">helm</span><span style="color:#C3E88D;"> repo</span><span style="color:#C3E88D;"> update</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#82AAFF;">echo</span><span style="color:#89DDFF;"> &quot;</span><span style="color:#C3E88D;">&gt; Install cert-manager</span><span style="color:#89DDFF;">&quot;</span></span>
+<span class="line"><span style="color:#FFCB6B;">helm</span><span style="color:#C3E88D;"> install</span><span style="color:#C3E88D;"> cert-manager</span><span style="color:#C3E88D;"> jetstack/cert-manager</span><span style="color:#EEFFFF;"> \\</span></span>
+<span class="line"><span style="color:#C3E88D;">  --create-namespace</span><span style="color:#EEFFFF;"> \\</span></span>
+<span class="line"><span style="color:#C3E88D;">  --namespace</span><span style="color:#C3E88D;"> cert-manager</span><span style="color:#EEFFFF;"> \\</span></span>
+<span class="line"><span style="color:#C3E88D;">  --set</span><span style="color:#C3E88D;"> config.apiVersion=</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">controller.config.cert-manager.io/v1alpha1</span><span style="color:#89DDFF;">&quot;</span><span style="color:#EEFFFF;"> \\</span></span>
+<span class="line"><span style="color:#C3E88D;">  --set</span><span style="color:#C3E88D;"> config.kind=</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">ControllerConfiguration</span><span style="color:#89DDFF;">&quot;</span><span style="color:#EEFFFF;"> \\</span></span>
+<span class="line"><span style="color:#C3E88D;">  --set</span><span style="color:#C3E88D;"> crds.enabled=</span><span style="color:#89DDFF;">true</span><span style="color:#EEFFFF;"> \\</span></span>
+<span class="line"><span style="color:#C3E88D;">  --set</span><span style="color:#C3E88D;"> config.enableGatewayAPI=</span><span style="color:#89DDFF;">true</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FFCB6B;">kubectl</span><span style="color:#C3E88D;"> create</span><span style="color:#C3E88D;"> namespace</span><span style="color:#C3E88D;"> kube-gateway</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#82AAFF;">echo</span><span style="color:#89DDFF;"> &quot;</span><span style="color:#C3E88D;">&gt; Create CA Cluster Issuer</span><span style="color:#89DDFF;">&quot;</span></span>
+<span class="line"><span style="color:#FFCB6B;">cat</span><span style="color:#89DDFF;"> &lt;&lt;</span><span style="color:#89DDFF;">EOF</span><span style="color:#89DDFF;"> |</span><span style="color:#FFCB6B;"> kubectl</span><span style="color:#C3E88D;"> apply</span><span style="color:#C3E88D;"> -f</span><span style="color:#C3E88D;"> -</span></span>
+<span class="line"><span style="color:#C3E88D;">apiVersion: cert-manager.io/v1</span></span>
+<span class="line"><span style="color:#C3E88D;">kind: Issuer</span></span>
+<span class="line"><span style="color:#C3E88D;">metadata:</span></span>
+<span class="line"><span style="color:#C3E88D;">  name: self-signed</span></span>
+<span class="line"><span style="color:#C3E88D;">  namespace: kube-gateway</span></span>
+<span class="line"><span style="color:#C3E88D;">spec:</span></span>
+<span class="line"><span style="color:#C3E88D;">  selfSigned: {}</span></span>
+<span class="line"><span style="color:#C3E88D;">---</span></span>
+<span class="line"><span style="color:#C3E88D;">apiVersion: cert-manager.io/v1</span></span>
+<span class="line"><span style="color:#C3E88D;">kind: Certificate</span></span>
+<span class="line"><span style="color:#C3E88D;">metadata:</span></span>
+<span class="line"><span style="color:#C3E88D;">  name: ca</span></span>
+<span class="line"><span style="color:#C3E88D;">  namespace: kube-gateway</span></span>
+<span class="line"><span style="color:#C3E88D;">spec:</span></span>
+<span class="line"><span style="color:#C3E88D;">  isCA: true</span></span>
+<span class="line"><span style="color:#C3E88D;">  privateKey:</span></span>
+<span class="line"><span style="color:#C3E88D;">    algorithm: ECDSA</span></span>
+<span class="line"><span style="color:#C3E88D;">    size: 256</span></span>
+<span class="line"><span style="color:#C3E88D;">  secretName: ca</span></span>
+<span class="line"><span style="color:#C3E88D;">  commonName: ca</span></span>
+<span class="line"><span style="color:#C3E88D;">  issuerRef:</span></span>
+<span class="line"><span style="color:#C3E88D;">    name: self-signed</span></span>
+<span class="line"><span style="color:#C3E88D;">    kind: Issuer</span></span>
+<span class="line"><span style="color:#C3E88D;">---</span></span>
+<span class="line"><span style="color:#C3E88D;">apiVersion: cert-manager.io/v1</span></span>
+<span class="line"><span style="color:#C3E88D;">kind: Issuer</span></span>
+<span class="line"><span style="color:#C3E88D;">metadata:</span></span>
+<span class="line"><span style="color:#C3E88D;">  name: ca-issuer</span></span>
+<span class="line"><span style="color:#C3E88D;">  namespace: kube-gateway</span></span>
+<span class="line"><span style="color:#C3E88D;">spec:</span></span>
+<span class="line"><span style="color:#C3E88D;">  ca:</span></span>
+<span class="line"><span style="color:#C3E88D;">    secretName: ca</span></span>
+<span class="line"><span style="color:#89DDFF;">EOF</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#82AAFF;">echo</span><span style="color:#89DDFF;"> &quot;</span><span style="color:#C3E88D;">&gt; Add *.kube.com address gateway</span><span style="color:#89DDFF;">&quot;</span></span>
+<span class="line"><span style="color:#FFCB6B;">cat</span><span style="color:#89DDFF;"> &lt;&lt;</span><span style="color:#89DDFF;">EOF</span><span style="color:#89DDFF;"> |</span><span style="color:#FFCB6B;"> kubectl</span><span style="color:#C3E88D;"> apply</span><span style="color:#C3E88D;"> -f</span><span style="color:#C3E88D;"> -</span></span>
+<span class="line"><span style="color:#C3E88D;">apiVersion: gateway.networking.k8s.io/v1</span></span>
+<span class="line"><span style="color:#C3E88D;">kind: Gateway</span></span>
+<span class="line"><span style="color:#C3E88D;">metadata:</span></span>
+<span class="line"><span style="color:#C3E88D;">  name: kube</span></span>
+<span class="line"><span style="color:#C3E88D;">  namespace: kube-gateway</span></span>
+<span class="line"><span style="color:#C3E88D;">  annotations:</span></span>
+<span class="line"><span style="color:#C3E88D;">    cert-manager.io/issuer: ca-issuer</span></span>
+<span class="line"><span style="color:#C3E88D;">spec:</span></span>
+<span class="line"><span style="color:#C3E88D;">  gatewayClassName: cilium</span></span>
+<span class="line"><span style="color:#C3E88D;">  listeners:</span></span>
+<span class="line"><span style="color:#C3E88D;">    - name: kube-subdomain</span></span>
+<span class="line"><span style="color:#C3E88D;">      hostname: &quot;*.kube.com&quot;</span></span>
+<span class="line"><span style="color:#C3E88D;">      port: 443</span></span>
+<span class="line"><span style="color:#C3E88D;">      protocol: HTTPS</span></span>
+<span class="line"><span style="color:#C3E88D;">      allowedRoutes:</span></span>
+<span class="line"><span style="color:#C3E88D;">        namespaces:</span></span>
+<span class="line"><span style="color:#C3E88D;">          from: All</span></span>
+<span class="line"><span style="color:#C3E88D;">      tls:</span></span>
+<span class="line"><span style="color:#C3E88D;">        mode: Terminate</span></span>
+<span class="line"><span style="color:#C3E88D;">        certificateRefs:</span></span>
+<span class="line"><span style="color:#C3E88D;">          - name: kube-com-tls</span></span>
+<span class="line"><span style="color:#C3E88D;">    - name: kube</span></span>
+<span class="line"><span style="color:#C3E88D;">      hostname: kube.com</span></span>
+<span class="line"><span style="color:#C3E88D;">      port: 443</span></span>
+<span class="line"><span style="color:#C3E88D;">      protocol: HTTPS</span></span>
+<span class="line"><span style="color:#C3E88D;">      allowedRoutes:</span></span>
+<span class="line"><span style="color:#C3E88D;">        namespaces:</span></span>
+<span class="line"><span style="color:#C3E88D;">          from: All</span></span>
+<span class="line"><span style="color:#C3E88D;">      tls:</span></span>
+<span class="line"><span style="color:#C3E88D;">        mode: Terminate</span></span>
+<span class="line"><span style="color:#C3E88D;">        certificateRefs:</span></span>
+<span class="line"><span style="color:#C3E88D;">          - name: kube-com-tls</span></span>
+<span class="line"><span style="color:#89DDFF;">EOF</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#82AAFF;">echo</span><span style="color:#89DDFF;"> &quot;</span><span style="color:#C3E88D;">&gt; Add proxy address gateway</span><span style="color:#89DDFF;">&quot;</span></span>
+<span class="line"><span style="color:#FFCB6B;">cat</span><span style="color:#89DDFF;"> &lt;&lt;</span><span style="color:#89DDFF;">EOF</span><span style="color:#89DDFF;"> |</span><span style="color:#FFCB6B;"> kubectl</span><span style="color:#C3E88D;"> apply</span><span style="color:#C3E88D;"> -f</span><span style="color:#C3E88D;"> -</span></span>
+<span class="line"><span style="color:#C3E88D;">apiVersion: gateway.networking.k8s.io/v1</span></span>
+<span class="line"><span style="color:#C3E88D;">kind: Gateway</span></span>
+<span class="line"><span style="color:#C3E88D;">metadata:</span></span>
+<span class="line"><span style="color:#C3E88D;">  name: kube-proxy</span></span>
+<span class="line"><span style="color:#C3E88D;">  namespace: kube-gateway</span></span>
+<span class="line"><span style="color:#C3E88D;">spec:</span></span>
+<span class="line"><span style="color:#C3E88D;">  gatewayClassName: cilium</span></span>
+<span class="line"><span style="color:#C3E88D;">  listeners:</span></span>
+<span class="line"><span style="color:#C3E88D;">    - name: kube-proxy</span></span>
+<span class="line"><span style="color:#C3E88D;">      hostname: &quot;proxy&quot;</span></span>
+<span class="line"><span style="color:#C3E88D;">      port: 80</span></span>
+<span class="line"><span style="color:#C3E88D;">      protocol: HTTP</span></span>
+<span class="line"><span style="color:#C3E88D;">      allowedRoutes:</span></span>
+<span class="line"><span style="color:#C3E88D;">        namespaces:</span></span>
+<span class="line"><span style="color:#C3E88D;">          from: All</span></span>
+<span class="line"><span style="color:#89DDFF;">EOF</span></span></code></pre></div><p>Auto generated certificates on the gateway.</p><div class="language-sh"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki material-theme vp-code" tabindex="0"><code><span class="line"><span style="color:#FFCB6B;">kubectl</span><span style="color:#C3E88D;"> describe</span><span style="color:#C3E88D;"> certificates.cert-manager.io</span><span style="color:#C3E88D;"> kube-com-tls</span></span>
+<span class="line"><span style="color:#546E7A;font-style:italic;">#....</span></span>
+<span class="line"><span style="color:#546E7A;font-style:italic;">#Spec:</span></span>
+<span class="line"><span style="color:#546E7A;font-style:italic;">#  Dns Names:</span></span>
+<span class="line"><span style="color:#546E7A;font-style:italic;">#    *.kube.com</span></span>
+<span class="line"><span style="color:#546E7A;font-style:italic;">#    kube.com</span></span></code></pre></div><h2 id="get-ca-certificate" tabindex="-1">Get CA certificate <a class="header-anchor" href="#get-ca-certificate" aria-label="Permalink to &quot;Get CA certificate&quot;">​</a></h2><div class="language-sh"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki material-theme vp-code" tabindex="0"><code><span class="line"><span style="color:#FFCB6B;">kubectl</span><span style="color:#C3E88D;"> get</span><span style="color:#C3E88D;"> secrets</span><span style="color:#C3E88D;"> ca</span><span style="color:#C3E88D;"> -o</span><span style="color:#C3E88D;"> jsonpath=</span><span style="color:#89DDFF;">&#39;</span><span style="color:#C3E88D;">{.data.tls\\.crt}</span><span style="color:#89DDFF;">&#39;</span><span style="color:#89DDFF;"> |</span><span style="color:#FFCB6B;"> base64</span><span style="color:#C3E88D;"> -d</span><span style="color:#89DDFF;"> &gt;</span><span style="color:#C3E88D;"> ~/ca.crt</span></span></code></pre></div><h1 id="mkcert" tabindex="-1">mkcert <a class="header-anchor" href="#mkcert" aria-label="Permalink to &quot;mkcert&quot;">​</a></h1><blockquote><p>Use cert manager for better management of certificates.</p></blockquote><p>Go application to easily create certificates.</p><blockquote><p><a href="https://github.com/FiloSottile/mkcert" target="_blank" rel="noreferrer">https://github.com/FiloSottile/mkcert</a></p></blockquote><h2 id="installation" tabindex="-1">Installation <a class="header-anchor" href="#installation" aria-label="Permalink to &quot;Installation&quot;">​</a></h2><div class="language-sh"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki material-theme vp-code" tabindex="0"><code><span class="line"><span style="color:#FFCB6B;">curl</span><span style="color:#C3E88D;"> -fSLO</span><span style="color:#C3E88D;"> https://github.com/FiloSottile/mkcert/releases/download/v1.4.4/mkcert-v1.4.4-linux-amd64</span></span>
+<span class="line"><span style="color:#FFCB6B;">chmod</span><span style="color:#C3E88D;"> +x</span><span style="color:#C3E88D;"> mkcert-v1.4.4-linux-amd64</span></span>
+<span class="line"><span style="color:#FFCB6B;">sudo</span><span style="color:#C3E88D;"> mv</span><span style="color:#C3E88D;"> mkcert-v1.4.4-linux-amd64</span><span style="color:#C3E88D;"> /usr/local/bin/mkcert</span></span></code></pre></div><h2 id="usage" tabindex="-1">Usage <a class="header-anchor" href="#usage" aria-label="Permalink to &quot;Usage&quot;">​</a></h2><p>Generate keys</p><div class="language-sh"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki material-theme vp-code" tabindex="0"><code><span class="line"><span style="color:#FFCB6B;">mkcert</span><span style="color:#C3E88D;"> -key-file</span><span style="color:#C3E88D;"> key.pem</span><span style="color:#C3E88D;"> -cert-file</span><span style="color:#C3E88D;"> cert.pem</span><span style="color:#C3E88D;"> kube.com</span><span style="color:#89DDFF;"> &quot;</span><span style="color:#C3E88D;">*.kube.com</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;"> localhost</span><span style="color:#F78C6C;"> 127.0.0.1</span><span style="color:#C3E88D;"> ::1</span></span></code></pre></div><p>Show CA key path</p><div class="language-sh"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki material-theme vp-code" tabindex="0"><code><span class="line"><span style="color:#FFCB6B;">mkcert</span><span style="color:#C3E88D;"> -CAROOT</span></span></code></pre></div>`,18)]))}const E=a(p,[["render",o]]);export{C as __pageData,E as default};
