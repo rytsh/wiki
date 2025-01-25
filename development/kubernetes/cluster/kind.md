@@ -32,7 +32,7 @@ echo 'source <(kind completion bash)' >> ~/.bashrc
 
 Before start create cluster with cilium, change kernel and add ip forwarding (this is for socks5 proxy we use in after that).
 
-> [pre-request](./prerequest.md)
+> [pre-requests](./pre-requests.md)
 
 Create a cluster with `cilium`
 

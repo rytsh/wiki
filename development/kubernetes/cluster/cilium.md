@@ -2,7 +2,7 @@
 
 Cilum is general networking solution makes load balancer, firewall, etc.
 
-> Before to install cilium check [pre-request](./prerequest.md) for kernel.
+> Before to install cilium check [pre-requests](./pre-requests.md) for kernel.
 
 CLI installation
 

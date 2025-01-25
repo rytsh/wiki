@@ -65,18 +65,18 @@ export default defineConfig({
               {
                 text: 'Guide',
                 items: [
-                  { text: 'Tools',
-                    items: [
-                      { text: 'dhcpd', link: '/development/kubernetes/guide/tools/dhcpd' },
-                      { text: 'tftp', link: '/development/kubernetes/guide/tools/tftp' },
-                      { text: 'dns', link: '/development/kubernetes/guide/tools/dns' },
-                      { text: 'load_balancer', link: '/development/kubernetes/guide/tools/load_balancer' },
-                    ],
-                    collapsed: true
-                  },
                   { text: 'Kubeadm', link: '/development/kubernetes/guide/kubeadm' },
                   { text: 'Intro', link: '/development/kubernetes/guide/intro' },
                   { text: 'Core', link: '/development/kubernetes/guide/core' },
+                ],
+                collapsed: true
+              },
+              { text: 'Tools',
+                items: [
+                  { text: 'dhcpd', link: '/development/kubernetes/tools/dhcpd' },
+                  { text: 'tftp', link: '/development/kubernetes/tools/tftp' },
+                  { text: 'dns', link: '/development/kubernetes/tools/dns' },
+                  { text: 'load_balancer', link: '/development/kubernetes/tools/load_balancer' },
                 ],
                 collapsed: true
               },
