@@ -74,6 +74,7 @@ export default defineConfig({
                     {text: 'dns', link: '/development/kubernetes/cluster/dns'},
                     {text: 'proxy', link: '/development/kubernetes/cluster/proxy'},
                     {text: 'headlamp', link: '/development/kubernetes/cluster/headlamp'},
+                    {text: 'nerdctl', link: '/development/kubernetes/cluster/nerdctl'},
                 ]
               },
               {
