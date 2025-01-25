@@ -34,21 +34,6 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Tools',
-        items: [
-          { text: 'Server',
-            items: [
-              { text: 'dhcpd', link: '/tools/server/dhcpd' },
-              { text: 'tftp', link: '/tools/server/tftp' },
-              { text: 'dns', link: '/tools/server/dns' },
-              { text: 'load_balancer', link: '/tools/server/load_balancer' },
-            ],
-            collapsed: true
-          },
-        ],
-        collapsed: true
-      },
-      {
         text: 'Development',
         items: [
           {
@@ -80,6 +65,15 @@ export default defineConfig({
               {
                 text: 'Guide',
                 items: [
+                  { text: 'Tools',
+                    items: [
+                      { text: 'dhcpd', link: '/development/kubernetes/guide/tools/dhcpd' },
+                      { text: 'tftp', link: '/development/kubernetes/guide/tools/tftp' },
+                      { text: 'dns', link: '/development/kubernetes/guide/tools/dns' },
+                      { text: 'load_balancer', link: '/development/kubernetes/guide/tools/load_balancer' },
+                    ],
+                    collapsed: true
+                  },
                   { text: 'Kubeadm', link: '/development/kubernetes/guide/kubeadm' },
                   { text: 'Intro', link: '/development/kubernetes/guide/intro' },
                   { text: 'Core', link: '/development/kubernetes/guide/core' },
