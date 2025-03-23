@@ -138,4 +138,8 @@ env: ## Use env program like make env-prog -- --services-create
 	else \
 		go run main.go $(filter-out $@,$(MAKECMDGOALS)); \
 	fi
+
+# Ignore all env targets
+$(filter-out env,$(MAKECMDGOALS)):
+	@:
 ```
