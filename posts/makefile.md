@@ -115,3 +115,27 @@ html-wsl: html-gen ## Open html coverage result in wsl
 ```
 
 Don't forget to add `/coverage.*` in the `.gitignore` file.
+
+## Make self calls
+
+To ignore log for directory when calling another make command in makefile.
+
+```makefile
+MAKEFLAGS += --no-print-directory
+```
+
+## Makefile run command
+
+If we want to use parameters goes to one command we can use this:
+
+```makefile
+.PHONY: env
+env: ## Use env program like make env-prog -- --services-create
+	@if [ -z "$(filter-out $@,$(MAKECMDGOALS))" ]; then \
+		echo "---> make env -- [flags]"; \
+		echo "########################################"; \
+		LOG_LEVEL=warn go run main.go --help; \
+	else \
+		go run main.go $(filter-out $@,$(MAKECMDGOALS)); \
+	fi
+```
