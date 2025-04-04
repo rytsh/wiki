@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Mock interfaces in golang https://github.com/uber-go/mock
+  - - meta
+    - name: keywords
+      content: mock interfaces go golang mocking
+---
+
 # Mock Interfaces
 
 > Mock package in golang https://github.com/uber-go/mock
@@ -34,7 +44,7 @@ If you have interface like below or you could be have multiple interfaces in the
 //go:generate mockgen -source=${GOFILE} -destination=interface_test.go -package=${GOPACKAGE} ConfigLoader
 ```
 
-End of mockgen command, you need to add which interfaces you want to generate mock.  
+End of mockgen command, you need to add which interfaces you want to generate mock.
 Proper example for generate mock in `interface.go` file:
 
 ```go
@@ -54,7 +64,7 @@ type Loader interface {
 }
 ```
 
-Just click generate command in the IDE to run it.  
+Just click generate command in the IDE to run it.
 It will generate `interface_test.go` file in the same directory.
 
 > Don't generate mock in the common mock folder, every component should be isolated in the same directory!

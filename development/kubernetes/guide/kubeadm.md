@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Kubeadm for installation and join to the existing cluster.
+  - - meta
+    - name: keywords
+      content: kubernetes kubeadm
+---
+
 # Kubeadm
 
 Afterinitialize kubeadm we can create new join token with kubeadm tool

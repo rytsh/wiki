@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Prometheus stack deployment and configuration.
+  - - meta
+    - name: keywords
+      content: kubernetes prometheus
+---
+
 # Prometheus
 
 Check https://prometheus-community.github.io/helm-charts to install the prometheus stack
@@ -70,5 +80,5 @@ EOF
 
 ## Loki datasource to Grafana
 
-Go to sources and add loki datasource with `http://loki:3100`, just save and skip error.  
+Go to sources and add loki datasource with `http://loki:3100`, just save and skip error.
 Look predefined dashboards and explore loki.

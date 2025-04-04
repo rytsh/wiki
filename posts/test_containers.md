@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Test containers and their usage in Go.
+  - - meta
+    - name: keywords
+      content: testcontainers go golang test
+---
+
 # Test Containers
 
 With this project https://golang.testcontainers.org/, help us to creating container with code in test steps.
@@ -21,7 +31,7 @@ func (c *Container) Close(ctx context.Context) {
 
 Now we can create container and add to the struct.
 
-> Always keep in mind to use `host, err := postgresContainer.Host(ctx)` when getting container's host address.  
+> Always keep in mind to use `host, err := postgresContainer.Host(ctx)` when getting container's host address.
 > Don't use any hardcoded address.
 
 `Host` function will check `TESTCONTAINERS_HOST_OVERRIDE` so you can use this value for DIND solutions in pipelines.

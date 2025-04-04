@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: SSH tunnel that allows you to create a secure connection between two networks over an untrusted network.
+  - - meta
+    - name: keywords
+      content: ssh tunnel sshuttle
+---
+
 # SSH Tunnel
 
 sshuttle is very useful for accessing a remote network via ssh.
@@ -20,7 +30,7 @@ ssh -p 8822 -o StrictHostKeyChecking=no user@localhost
 
 ## sshuttle
 
-Install sshuttle in the local machine [sshuttle](https://github.com/sshuttle/sshuttle).  
+Install sshuttle in the local machine [sshuttle](https://github.com/sshuttle/sshuttle).
 This service redirect our network traffic to the remote network via ssh.
 
 Now we can access the `10.10.1.0/24` network in the remote machine with running:

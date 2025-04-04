@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Network IP address management and configuration.
+  - - meta
+    - name: keywords
+      content: network IP address
+---
+
 # Network
 
 Communication with IP, DNS and cluster networking.
@@ -31,7 +41,7 @@ default         _gateway        0.0.0.0         UG    0      0        0 ens37
 192.168.122.0   0.0.0.0         255.255.255.0   U     0      0        0 virbr0
 ```
 
-But we need to declare gateway to reach specific network.  
+But we need to declare gateway to reach specific network.
 In here we want to go to `192.168.2.9/24` network but use `192.168.1.1`.
 
 ```sh
@@ -51,7 +61,7 @@ ip route del default
 ip route del 10.0.0.0/24 via 192.168.0.36
 ```
 
-When you reach to one machine to another of another machine, you need to declare route for related machines.  
+When you reach to one machine to another of another machine, you need to declare route for related machines.
 In linux machine ip forward disabled to prevent directly connect private network.
 
 ```sh
@@ -236,7 +246,7 @@ But if you want to go to internet in namespace you need to add default route to 
 ip netns exec blue ip route add default via 192.168.15.5
 ```
 
-Now you can communicate with outside network  
+Now you can communicate with outside network
 But if outside network need to communicate inside namespace
 
 You can add route to outside machine but this is not useful so use port forwarding
@@ -247,7 +257,7 @@ ip tables -t nat -A PREROUTING --dport 80 --to-destination 192.168.15.2:80 -j DN
 
 Any comming traffic in 80 goes to 192.168.15.2:80
 
-https://www.cyberciti.biz/tips/linux-iptables-examples.html  
-https://www.karlrupp.net/en/computer/nat_tutorial  
-https://www.revsys.com/writings/quicktips/nat.html  
+https://www.cyberciti.biz/tips/linux-iptables-examples.html
+https://www.karlrupp.net/en/computer/nat_tutorial
+https://www.revsys.com/writings/quicktips/nat.html
 https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/4/html/security_guide/s1-firewall-ipt-fwd

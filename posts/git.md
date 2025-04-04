@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Git configuration, exclude files, user change, GPG key.
+  - - meta
+    - name: keywords
+      content: git config gpg exclude
+---
+
 # git
 
 ```sh
@@ -46,7 +56,7 @@ And create a file `~/.git/personal` and add your user info
 
 Check this links:
 
-https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key?platform=linux  
+https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key?platform=linux
 https://docs.gitlab.com/ee/user/project/repository/signed_commits/gpg.html
 
 Install gpg(2) with your package manager.

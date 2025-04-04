@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: kubectl for accessing Kubernetes API on command line.
+  - - meta
+    - name: keywords
+      content: kubernetes kubectl
+---
+
 # kubectl
 
 We need to have kubectl to talk with kube-apiserver. We can install kubectl using the following command.

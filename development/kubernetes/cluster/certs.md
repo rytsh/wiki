@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Cert manager for Kubernetes cluster certificates management.
+  - - meta
+    - name: keywords
+      content: kubernetes cert-manager jetstack cert-manager.io
+---
+
 # Cert Manager
 
 Auto generate certificates for Kubernetes.

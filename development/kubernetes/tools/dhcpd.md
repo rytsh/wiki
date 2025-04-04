@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: DHCPD installation and configuration guide.
+  - - meta
+    - name: keywords
+      content: dhcpd
+---
+
 # DHCPD
 
 For giving IP addresses to the clients with specific MAC addresses, `dhcpd` very common option.
@@ -19,7 +29,7 @@ Configure it
 vim /etc/dhcp/dhcpd.conf
 ```
 
-With this config we give IP addresses to the clients with specific MAC addresses.  
+With this config we give IP addresses to the clients with specific MAC addresses.
 Other clients will get IP addresses from the range.
 
 We also setting the hostname for the clients.

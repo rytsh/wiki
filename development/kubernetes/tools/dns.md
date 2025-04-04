@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: DNS installation and configuration guide.
+  - - meta
+    - name: keywords
+      content: dns
+---
+
 # DNS
 
 DNS server for finding machines.
@@ -17,7 +27,7 @@ But I will choice package manager beacuse it is tiny doesn't have any dependenci
 For Alpine enable first community repo.
 
 ```sh
-management:~# cat /etc/apk/repositories 
+management:~# cat /etc/apk/repositories
 #/media/cdrom/apks
 http://mirror1.hs-esslingen.de/pub/Mirrors/alpine/v3.18/main
 http://mirror1.hs-esslingen.de/pub/Mirrors/alpine/v3.18/community

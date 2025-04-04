@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Using ssh over https to work with git over restrictive networks.
+  - - meta
+    - name: keywords
+      content: git ssh https
+---
+
 # SSH over HTTPS
 
 When using company networks, SSH is often blocked. To bypass this, you can use SSH over HTTPS.

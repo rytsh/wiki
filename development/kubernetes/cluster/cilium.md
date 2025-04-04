@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Cilium is a general networking solution that provides load balancing, firewall, and other networking features.
+  - - meta
+    - name: keywords
+      content: kubernetes cilium
+---
+
 # Cilium
 
 Cilum is general networking solution makes load balancer, firewall, etc.

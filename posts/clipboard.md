@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Clipboard management in Linux, Windows, and macOS.
+  - - meta
+    - name: keywords
+      content: clipboard, linux, windows, macos, management
+---
+
 # Clipboard
 
 ## Windows WSL

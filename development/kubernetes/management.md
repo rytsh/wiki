@@ -1,14 +1,24 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Management machine to setup dhcp, pxe, dns, etc. Alpine linux is used for this job.
+  - - meta
+    - name: keywords
+      content: alpine management machine
+---
+
 # Management Machine
 
-For creating a cluster, first we need a management machine to setup dhcp, pxe, dns, etc.  
-I use `alpine linux` for this. It is a very small linux distro and perfect for this job.  
+For creating a cluster, first we need a management machine to setup dhcp, pxe, dns, etc.
+I use `alpine linux` for this. It is a very small linux distro and perfect for this job.
 
 First give the iso URL to the proxmox and it will download it.
 
-When creating the virtual machine, give it 2 cores and 1GB of ram.  
+When creating the virtual machine, give it 2 cores and 1GB of ram.
 Also give it a 32GB disk, (based on kernel setting sata can view it).
 
-For network, give it 2 network cards. One for the internet and one for the internal network.  
+For network, give it 2 network cards. One for the internet and one for the internal network.
 Use Intel E1000 for both of them.
 
 And our cluster machines just will be in the internal network.
@@ -24,7 +34,7 @@ Setting manual IP address for the management machine.
 In my case eth0 is the internet and eth1 is the internal network.
 
 ```sh
-cat /etc/network/interfaces 
+cat /etc/network/interfaces
 auto lo
 iface lo inet loopback
 
@@ -45,7 +55,7 @@ And need to restart the network service.
 rc-service networking restart
 ```
 
-Inside of the `/etc/resolv.conf` file, we set search name.  
+Inside of the `/etc/resolv.conf` file, we set search name.
 To set directly with command line use this command:
 
 ```sh
@@ -70,7 +80,7 @@ I used in dhcpd server `kube-cluster` as domain name so `management.kube-cluster
 
 ### SSH
 
-Inside of the /etc/ssh/sshd_config file, we need to change the `PermitRootLogin` to `yes` and restart the service.  
+Inside of the /etc/ssh/sshd_config file, we need to change the `PermitRootLogin` to `yes` and restart the service.
 After pushing the ssh key to the management machine, we can connect to it with ssh and close the root login.
 
 > If you can directly to push public-key to the management machine, that would be better!

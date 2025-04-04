@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: "Generate SSL certificates, CAs, keys, and CSRs using OpenSSL with practical examples and configurations for server and client authentication"
+  - - meta
+    - name: keywords
+      content: SSL certificate CA key CSR OpenSSL server client authentication
+---
+
 # Certificate
 
 Generate certifiacte for servers and clients.

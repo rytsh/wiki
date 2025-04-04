@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: General information about google cloud.
+  - - meta
+    - name: keywords
+      content: google cloud
+---
+
 # Google Cloud Fundamentals: Core Infrastructure
 
 General information about google cloud.
@@ -30,6 +40,5 @@ Resources < Project < Folder < Organization
 
 ## Storage
 
-Cloud Storage is object storage for binary data and gets with unique URLs. It is usable with versioning and regional storage.  
+Cloud Storage is object storage for binary data and gets with unique URLs. It is usable with versioning and regional storage.
 Life time policy can set to only hold 1 year record old newest 3 version.
-

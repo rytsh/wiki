@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Kubernetes API to reach with socks5 proxy.
+  - - meta
+    - name: keywords
+      content: socks5 proxy
+---
+
 # Proxy Socks5
 
 To reach with socks5 proxy.

@@ -1,9 +1,19 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Metric server for current metrics.
+  - - meta
+    - name: keywords
+      content: kubernetes metric
+---
+
 # Metric Server
 
-Metrics server just for current metrics show for kubernetes top command.  
+Metrics server just for current metrics show for kubernetes top command.
 You need to still install prometheus stack for monitoring.
 
-> https://github.com/kubernetes-sigs/metrics-server  
+> https://github.com/kubernetes-sigs/metrics-server
 > https://github.com/MartinHeinz/metrics-on-kind
 
 Enable metrics server to get metrics from your cluster.

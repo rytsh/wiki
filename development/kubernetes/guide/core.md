@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Kubernetes core concepts and commands.
+  - - meta
+    - name: keywords
+      content: kubernetes
+---
+
 # Core Concepts
 
 ## kubectl
@@ -14,7 +24,7 @@ kubectl create -f pod-defination.yml
 
 ## Nodes
 
-Nodes is machines, it run containers.  
+Nodes is machines, it run containers.
 Get information about nodes, I have one node and it is master so it will show like that.
 
 ```sh
@@ -32,7 +42,7 @@ The components on a node include the `kubelet`, a `container runtime`, and the `
 
 ## Pods
 
-Smallest deployable units, group of one or more containers.  
+Smallest deployable units, group of one or more containers.
 Pod can contain `init containers` that run during Pod startup, init containers run one by one until is completed pod container will run.
 
 Example Pod configuration, named `pod-nginx.yaml` but this just file name could be everything.
@@ -65,14 +75,14 @@ VERSION:    v1
 Explain command also usable for get information about data type.
 
 ```sh
-$ kubectl explain pod --recursive 
+$ kubectl explain pod --recursive
 KIND:       Pod
 VERSION:    v1
 
 DESCRIPTION:
     Pod is a collection of containers that can run on a host. This resource is
     created by clients and scheduled onto hosts.
-    
+
 FIELDS:
   apiVersion	<string>
   kind	<string>
@@ -333,12 +343,12 @@ kubectl diff -f nginx-replicaset.yaml
 cat nginx-replicaset.yaml | kubectl diff -f -
 ```
 
-Also you can use `set` or `scale` commands to change some fields.  
+Also you can use `set` or `scale` commands to change some fields.
 https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
 
 ## Deployment
 
-Deployment have useful stuff updating and rollback. Most of application use this.  
+Deployment have useful stuff updating and rollback. Most of application use this.
 Yaml file is same with `ReplicaSet` but kind is `Deployment`. When you create deployment, you will see in replicaset fields also.
 
 ```sh
@@ -370,7 +380,7 @@ spec:
 status: {}
 ```
 
-template field will be use when replicas is under 3 and this count looking to selector -> matchLabels field.  
+template field will be use when replicas is under 3 and this count looking to selector -> matchLabels field.
 So if you have app=my-deployment label pods deployment will use them also.
 
 And run with `apply` command. If you want to use `create` you should add `--save-config` option to change in future.
@@ -456,7 +466,7 @@ $ kubectl create -f pod-defination.yml --namespace=dev
 
 ## Resources
 
-We can add resource to a namespace or pods with using namespaces.  
+We can add resource to a namespace or pods with using namespaces.
 https://kubernetes.io/docs/concepts/policy/resource-quotas
 
 ## Service
@@ -481,14 +491,14 @@ spec:
 NodePort is outside port. You can omit port field and targetPort show pod's port.
 
 We declared NodePort to reach outside but in internal cluster we can use ClusterIP which is default. NodePort is not a load balancer, randomly choicing nodes.
-There are more type of service, check here  
+There are more type of service, check here
 https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
 
 ```sh
 kubectl get services
 ```
 
-Or you can use expose command to run service with specific component name like my-deployment.  
+Or you can use expose command to run service with specific component name like my-deployment.
 https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#expose
 
 ## StatefulSet

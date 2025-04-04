@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Alpine machine installation guide.
+  - - meta
+    - name: keywords
+      content: alpine install
+---
+
 # Machine
 
 ## Alpine

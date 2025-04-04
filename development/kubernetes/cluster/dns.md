@@ -1,11 +1,21 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Setup CoreDNS for Kubernetes cluster.
+  - - meta
+    - name: keywords
+      content: kubernetes coredns
+---
+
 # Core DNS
 
-> This is very complex solution due to under the some another network and DNS return that specific network's IP address.  
+> This is very complex solution due to under the some another network and DNS return that specific network's IP address.
 > Use `Turna`'s solution for that.
 
 Setup a core DNS server locally to reach all of our gateways without any problem.
 
-In here we transfer all DNS solution of `*.kube.com` to our cilium gateway which is `10.0.10.0`.  
+In here we transfer all DNS solution of `*.kube.com` to our cilium gateway which is `10.0.10.0`.
 Others will use our WSL's DNS address which is I get from `cat /etc/resolv.conf` command.
 
 Create locahost certificate

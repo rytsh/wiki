@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: tftp guide for pxe files.
+  - - meta
+    - name: keywords
+      content: tftp pxe
+---
+
 # TFTP
 
 With Alpine Linux

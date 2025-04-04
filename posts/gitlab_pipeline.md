@@ -1,6 +1,16 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Gitlab pipeline features and examples.
+  - - meta
+    - name: keywords
+      content: gitlab pipeline comment features
+---
+
 # Gitlab Pipeline
 
-Gitlab's pipeline is very easy to understand and use it.  
+Gitlab's pipeline is very easy to understand and use it.
 Also it has good documentation (not like github!) and YAML configuration in a page easy to search and see.
 
 > https://docs.gitlab.com/ee/ci/yaml/

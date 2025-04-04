@@ -1,6 +1,16 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Rebase a container image to a new base image.
+  - - meta
+    - name: keywords
+      content: crane docker rebase
+---
+
 # Rebase Container
 
-Crane tool has rebase command to rebase a container image to a new base image.  
+Crane tool has rebase command to rebase a container image to a new base image.
 This is useful when the base image is updated and you want to update the container image to use the new base image.
 
 https://github.com/google/go-containerregistry/tree/main/cmd/crane

@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Kubernetes installation guide.
+  - - meta
+    - name: keywords
+      content: kubeadm install kubernetes
+---
+
 # Install Kubernetes
 
 Login to one of master nodes.
@@ -64,7 +74,7 @@ rc-service kubelet start
 
 ---
 
-> Cilium can handle kube-proxy so we don't need to install it.  
+> Cilium can handle kube-proxy so we don't need to install it.
 > `--skip-phases=addon/kube-proxy`
 
 Before to start, need to add load balancer to support HA.

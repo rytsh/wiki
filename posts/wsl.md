@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: I like windows's UI simple I can do jobs faster than mac and adding linux terminal on that is perfect work environment for me.
+  - - meta
+    - name: keywords
+      content: wsl
+---
+
 # WSL 🍻
 
 > I LOVE WSL!

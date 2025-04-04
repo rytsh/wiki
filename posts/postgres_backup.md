@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Posgres backup and restore with pg_dump and pg_restore commands.
+  - - meta
+    - name: keywords
+      content: postgres backup pg_dump pg_restore postgresql
+---
+
 # Postgres Backup
 
 Add postgresql repos to apt sources, if you use ubuntu do like that:

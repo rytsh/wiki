@@ -1,8 +1,18 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Headlamp is a Kubernetes dashboard that provides a web-based UI and easy to use.
+  - - meta
+    - name: keywords
+      content: kubernetes headlamp
+---
+
 # headlamp
 
 > I really liked headlamp amazing tool 🎉
 
-> https://headlamp.dev/  
+> https://headlamp.dev/
 > https://artifacthub.io/packages/helm/headlamp/headlamp
 
 Lens like dashboard for kubernetes, it has web-based UI and easy to use.

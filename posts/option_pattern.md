@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Option pattern is a design pattern that allows you to specify optional parameters for a function or method. It is useful for handling configuration values and user just add option what they want to change on default configuration.
+  - - meta
+    - name: keywords
+      content: option generic pattern golang go
+---
+
 # Option Pattern with Generic
 
 Option pattern good to handle configuration values and user just add option what they want to change on default configuration.

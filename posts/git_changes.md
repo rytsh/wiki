@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Git changes between commits.
+  - - meta
+    - name: keywords
+      content: git changes commit show
+---
+
 # Git Changes
 
 Get list of changed files between two commits:

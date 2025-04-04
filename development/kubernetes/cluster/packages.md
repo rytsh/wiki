@@ -1,8 +1,18 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Kubernetes stacks, Prometheus, Tempo, Grafana, Loki.
+  - - meta
+    - name: keywords
+      content: helm kubernetes
+---
+
 # Kubernetes Packages
 
 Use https://artifacthub.io/ to find packages for Kubernetes.
 
-Before installing any package, make sure you have `kubectl` and `helm` installed.  
+Before installing any package, make sure you have `kubectl` and `helm` installed.
 Also setup completed for your cluster like load balancer, metrics server, etc.
 
 ## Prometheus Stack
@@ -17,7 +27,7 @@ helm repo update
 ```
 
 > for different storage classes, change `storageClassName`
-> 
+>
 > ```yaml
 > --set prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.storageClassName=local-storage
 > --set grafana.persistence.storageClassName=local-storage

@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: HAPROXY load balancer installation and configuration guide.
+  - - meta
+    - name: keywords
+      content: haproxy load balancer
+---
+
 # Load Balancers
 
 ## HAPROXY

@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Jet-Pilot is a desktop UI for Kubernetes. It is used to manage Kubernetes clusters.
+  - - meta
+    - name: keywords
+      content: kubernetes jet-pilot
+---
+
 # Jet Pilot
 
 > https://github.com/unxsist/jet-pilot

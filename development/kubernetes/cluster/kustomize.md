@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Kustomize for deploying Kubernetes resources with combination and grouping.
+  - - meta
+    - name: keywords
+      content: kubernetes kustomize
+---
+
 # kustomize
 
 > https://kustomize.io/

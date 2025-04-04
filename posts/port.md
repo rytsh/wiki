@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Port forwarding with netsh in Windows.
+  - - meta
+    - name: keywords
+      content: port forwarding netsh
+---
+
 # Port
 
 ## Port Forwarding Windows

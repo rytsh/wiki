@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Helm is a package manager for Kubernetes. It is used to deploy applications on Kubernetes.
+  - - meta
+    - name: keywords
+      content: kubernetes helm
+---
+
 # Helm
 
 > https://helm.sh/

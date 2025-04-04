@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Terminal colorization and git status in your terminal view.
+  - - meta
+    - name: keywords
+      content: terminal view bash zsh
+---
+
 # Terminal View
 
 There is a great way to improve your terminal view. You can add some colors and git status to your terminal view.

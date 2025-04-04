@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Lens desktop UI for Kubernetes. OpenLens is a old community version of Lens.
+  - - meta
+    - name: keywords
+      content: kubernetes lens
+---
+
 # Lens
 
 > Try another tool like `k9s` or `headlamp`.

@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Nerd fonts are a collection of fonts that include a wide range of glyphs and symbols, making them ideal for use in terminal emulators and other text-based applications.
+  - - meta
+    - name: keywords
+      content: nerd fonts terminal
+---
+
 # Nerd Fonts
 
 Check https://www.nerdfonts.com/, it has patched fonts for glyphs.
@@ -16,8 +26,8 @@ git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git
 
 First add the fonts to the windows system. Go to `Font Settings` and drag-and-drop the fonts there.
 
-Inside of the windows terminal settings to enable new fonts:  
+Inside of the windows terminal settings to enable new fonts:
 __settings__ -> __profiles__ -> __appearance__ -> __font face__
 
-I like to use `FiraCode Nerd Font Mono` font.  
+I like to use `FiraCode Nerd Font Mono` font.
 For testing try to use [zellij](https://github.com/zellij-org/zellij).

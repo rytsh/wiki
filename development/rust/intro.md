@@ -1,6 +1,16 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Rust documentation and comments.
+  - - meta
+    - name: keywords
+      content: rust
+---
+
 # Rust
 
-> I'm learning Rust, and I'm going to write about it here what I learn and what I think about it.  
+> I'm learning Rust, and I'm going to write about it here what I learn and what I think about it.
 > https://github.com/rytsh/rust00
 
 Check this link for intro https://www.rust-lang.org/learn

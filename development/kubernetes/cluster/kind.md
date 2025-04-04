@@ -1,11 +1,21 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Kind is a tool for running local Kubernetes clusters using Docker container "nodes".
+  - - meta
+    - name: keywords
+      content: kubernetes kind
+---
+
 # Kind
 
 > https://kind.sigs.k8s.io/
 
-Easiest way to create a kubernetes cluster is open cluster in a docker container.  
+Easiest way to create a kubernetes cluster is open cluster in a docker container.
 Containers will be as our nodes.
 
-Kind use `KIND_EXPERIMENTAL_PROVIDER` environment variable to set provider.  
+Kind use `KIND_EXPERIMENTAL_PROVIDER` environment variable to set provider.
 Usable providers are `docker`, `podman`, `nerdctl`.
 
 ```sh
@@ -73,7 +83,7 @@ Remove cluster with `kind delete cluster` command.
 
 ## Storage PVC
 
-Kind uses `local-path-provisioner` for storage and claims automatically will create persistence volume for you.  
+Kind uses `local-path-provisioner` for storage and claims automatically will create persistence volume for you.
 Creating persistent volume claim with our `/data/` folder.
 
 > Only support PVC with `ReadWriteOnce` mode.

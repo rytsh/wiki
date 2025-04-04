@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Fake time in various environments and manipulations of system time for testing purposes.
+  - - meta
+    - name: keywords
+      content: Faketime Go
+---
+
 # Fake Time
 
 ## Go faketime

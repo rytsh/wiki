@@ -1,3 +1,13 @@
+---
+head:
+  - - meta
+    - name: description
+      content: QEMU command line usage.
+  - - meta
+    - name: keywords
+      content: qemu network
+---
+
 # QEMU
 
 Qemu is perfect for creating virtual machines.
@@ -69,7 +79,7 @@ qemu-system-x86_64  \
 
 ## VNC
 
-You can use mobaxterm, tigervnc or any other vnc client to connect to qemu.  
+You can use mobaxterm, tigervnc or any other vnc client to connect to qemu.
 5900 is the default port for qemu vnc.
 
 <!-- ## Network Card
@@ -180,10 +190,10 @@ Add to qemu start script.
 -device virtio-net-pci,mac=ba:53:4d:71:a5:46,netdev=net0,id=net0 -netdev tap,id=net0,ifname=macvtap0,script=no,downscript=no \
 ``` -->
 
-<!-- 
+<!--
 ## Bridge Network
 
-> Good articles  
+> Good articles
 > https://gist.github.com/extremecoders-re/e8fd8a67a515fee0c873dcafc81d811c
 
 Qemu is running but we need to have a bridge network to connect from our host to the virtual machine.

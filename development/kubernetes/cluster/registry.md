@@ -1,6 +1,16 @@
+---
+head:
+  - - meta
+    - name: description
+      content: rpardini/docker-registry-proxy is very good project to hold images and not to download them every time.
+  - - meta
+    - name: keywords
+      content: registry
+---
+
 # Registry
 
-[rpardini/docker-registry-proxy](https://github.com/rpardini/docker-registry-proxy) is very good project to hold images and not to download them every time.  
+[rpardini/docker-registry-proxy](https://github.com/rpardini/docker-registry-proxy) is very good project to hold images and not to download them every time.
 Especially good for `kind` clusters.
 
 Before to start container if any authentication needed pass it with `AUTH_REGISTRIES` environment variable.

@@ -1,9 +1,19 @@
+---
+head:
+  - - meta
+    - name: description
+      content: Example of generic with limiting for specific types.
+  - - meta
+    - name: keywords
+      content: go golang generic
+---
+
 # go generic for limiting specific types
 
-When working with a generic type, first thing to think about stuct types and union of interfaces.  
+When working with a generic type, first thing to think about stuct types and union of interfaces.
 There is another simple way to limit the type of generic type with interfaces with some tricks and probably take care of the inside of the function.
 
-Best part of the generic, we can define the return type on function call.  
+Best part of the generic, we can define the return type on function call.
 Let's create a simple generic function that will return the type of the input.
 
 ```go
@@ -30,7 +40,7 @@ func GenericType[T myType]() T {
 }
 ```
 
-Now `T` type should implement `myMethod` method.  
+Now `T` type should implement `myMethod` method.
 If you are using interface as type, it is not needed to real implementation, just existance of the method is enough because it cannot callable from outside of the package.
 
 I have these interfaces, and `myType` interface embeded to both of them.
