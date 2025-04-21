@@ -5,6 +5,7 @@ export default defineConfig({
   title: "wiki",
   titleTemplate: false,
   description: "rytsh's wiki",
+  cleanUrls: true,
   sitemap: {
     hostname: 'https://wiki.rytsh.io'
   },
