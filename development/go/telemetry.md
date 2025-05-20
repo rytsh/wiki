@@ -12,7 +12,7 @@ Check example in here https://github.com/worldline-go/telemetry_example
 
 ## Installation
 
-I created a [opentelemetry library](github.com/worldline-go/tell) for helper telemetry initialization so I will continue to use it.
+I created a [opentelemetry library](https://github.com/worldline-go/tell) for helper telemetry initialization so I will continue to use it.
 
 ```go
 import (
