@@ -17,14 +17,25 @@ Google mock repo maintaining by Uber, it is new version of golang/mock.
 ## Install
 
 ```sh
+go get -tool go.uber.org/mock/mockgen
+```
+
+<details><summary>Old method</summary>
+
+```sh
 go install go.uber.org/mock/mockgen@latest
 ```
+
+</details>
 
 Check version for verify installation.
 
 ```sh
-mockgen --version
+go tool mockgen -version
+# mockgen --version
 ```
+
+<details><summary>Old method to add makefile</summary>
 
 Add this installation in the `Makefile` for easy access.
 
@@ -36,12 +47,14 @@ tools: ## Download tools (mockgen)
 
 > If you editing the interface and creating new mock, please use always last version of mockgen.
 
+</details>
+
 ## Generate Mock
 
 If you have interface like below or you could be have multiple interfaces in the same file.
 
 ```go
-//go:generate mockgen -source=${GOFILE} -destination=interface_test.go -package=${GOPACKAGE} ConfigLoader
+//go:generate go tool mockgen -source=${GOFILE} -destination=mock_test.go -package=${GOPACKAGE} ConfigLoader
 ```
 
 End of mockgen command, you need to add which interfaces you want to generate mock.

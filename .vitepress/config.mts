@@ -92,8 +92,11 @@ export default defineConfig({
           },
           { text: 'Go',
             items: [
-              { text: "Mock", link: '/development/go/mock' },
+              { text: 'Mock', link: '/development/go/mock' },
               { text: 'Generic Limit', link: '/development/go/generic_limit' },
+              { text: 'gRPC', link: '/development/go/grpc' },
+              { text: 'Database', link: '/development/go/database' },
+              { text: 'Telemetry', link: '/development/go/telemetry' },
             ],
             collapsed: true
           },
