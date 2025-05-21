@@ -184,3 +184,9 @@ trigger:
         job: generate-pipeline
     strategy: depend
 ```
+
+## Proxy on Pipeline
+
+Don't set proxy in the runner, set it as pipeline variable.
+
+Use `HTTP_PROXY`, `HTTPS_PROXY`, `NO_PROXY` also `http_proxy`, `https_proxy`, `no_proxy` in the pipeline.
