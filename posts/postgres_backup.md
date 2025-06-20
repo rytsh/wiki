@@ -29,10 +29,20 @@ Add `-Fc` option to restore with pg_restore, it will create a custom format dump
 
 ```sh
 pg_dump -h postgresql -p 5432 -U postgres --dbname=mydb -Fc --file="mydb-dump.dmp"
+
+# only data
+pg_dump -h postgresql -p 15432 -U postgres --dbname=mydb --data-only -Fc --file="mydb-dump.dmp"
+
+
+# only schema
+pg_dump -h postgresql -p 5432 -U postgres --dbname=mydb --schema-only > schema.sql
 ```
 
 ## Restore
 
 ```sh
-pg_restore -h postgresql -p 5432 -U postgres --dbname=sonar ./mydb-dump.dmp
+pg_restore -h postgresql -p 5432 -U postgres --dbname=mydb ./mydb-dump.dmp
+
+# only schema
+psql -h postgresql -p 5432 -U postgres --dbname=mydb -f ./schema.sql
 ```
