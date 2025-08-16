@@ -112,6 +112,7 @@ export default defineConfig({
       {
         text: 'Posts',
         items: [
+          { text: 'USB Device to WSL', link: '/posts/usb_win' },
           { text: 'SSH over HTTPS', link: '/posts/ssh_https' },
           { text: 'Gitlab Pipeline', link: '/posts/gitlab_pipeline' },
           { text: 'Error 502', link: '/posts/error_502' },
