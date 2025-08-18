@@ -112,6 +112,7 @@ export default defineConfig({
       {
         text: 'Posts',
         items: [
+          { text: 'Drone', link: '/posts/drone' },
           { text: 'USB Device to WSL', link: '/posts/usb_win' },
           { text: 'SSH over HTTPS', link: '/posts/ssh_https' },
           { text: 'Gitlab Pipeline', link: '/posts/gitlab_pipeline' },
