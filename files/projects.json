@@ -1,5 +1,25 @@
 [
   {
+    "link": "https://github.com/rakunlabs/tummy",
+    "name": "tummy",
+    "title": "tummy time for golang"
+  },
+  {
+    "link": "https://github.com/rakunlabs/query",
+    "name": "query",
+    "title": "http query to database query transformer"
+  },
+  {
+    "link": "https://github.com/rakunlabs/ada",
+    "name": "ada",
+    "title": "go web framework"
+  },
+  {
+    "link": "https://github.com/rakunlabs/chu",
+    "name": "chu",
+    "title": "config loader for golang"
+  },
+  {
     "link": "https://github.com/rakunlabs/turna",
     "name": "turna",
     "title": "swiss knife for services"
