@@ -96,3 +96,19 @@ echo ""
 echo "GCP_WORKLOAD_IDENTITY_PROVIDER:"
 echo "projects/$(gcloud projects describe ${PROJECT_ID} --format='value(projectNumber)')/locations/global/workloadIdentityPools/${POOL_NAME}/providers/${PROVIDER_NAME}"
 ```
+
+## 10. Example GitHub Actions workflow snippet
+
+```yaml
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+      - name: Deploy to Cloud Run
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: bir-api
+          region: ${{ secrets.GCP_REGION }}
+          image: ${{ secrets.GCP_ARTIFACT_REGISTRY }}/ghcr.io/rytsh/bir/api:${{ steps.version.outputs.VERSION }}
+```
