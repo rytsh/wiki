@@ -90,6 +90,14 @@ export default defineConfig({
             ],
             collapsed: true
           },
+          {
+            text: 'Google Cloud',
+            items: [
+              { text: 'Core Infastructure', link: '/development/gcloud/core_infrastructure' },
+              { text: 'Identity Federation', link: '/development/gcloud/identity_federation' },
+            ],
+            collapsed: true
+          },
           { text: 'Go',
             items: [
               { text: 'Mock', link: '/development/go/mock' },
