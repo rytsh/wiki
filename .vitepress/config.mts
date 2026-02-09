@@ -95,6 +95,7 @@ export default defineConfig({
             items: [
               { text: 'Core Infastructure', link: '/development/gcloud/core_infrastructure' },
               { text: 'Identity Federation', link: '/development/gcloud/identity_federation' },
+              { text: 'Access Local', link: '/development/gcloud/access_local' },
             ],
             collapsed: true
           },
