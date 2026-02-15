@@ -129,7 +129,11 @@ MTU = 1380
 
 PostUp = sysctl -w net.ipv4.ip_forward=1
 PostUp = ip route add 10.0.10.0/24 via 172.22.0.4
+PostUp = iptables -I DOCKER-USER 1 -i wg0 -j ACCEPT
+PostUp = iptables -I DOCKER-USER 1 -o wg0 -j ACCEPT
 PostDown = ip route del 10.0.10.0/24
+PostDown = iptables -D DOCKER-USER -i wg0 -j ACCEPT
+PostDown = iptables -D DOCKER-USER -o wg0 -j ACCEPT
 
 [Peer]
 PublicKey = <cloud-public-key>
