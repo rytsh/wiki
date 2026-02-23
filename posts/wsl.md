@@ -28,6 +28,8 @@ There is still some cons, need to much more flexibility of the wsl machine like 
 
 ### Cannot execute windows binaries
 
+> Old trick, looks not needed anymore
+
 [microsoft/WSL#8843 (comment)](https://github.com/microsoft/WSL/issues/8843#issuecomment-1459120198)
 
 ```sh
@@ -39,3 +41,27 @@ After shutdown and restart WSL, you can execute windows binaries.
 ```sh
 wsl --shutdown
 ```
+
+### WSL - hard disk got all space
+
+First install `Optimize-VHD` and it is come with `Microsoft-Hyper-V` check powershell and if not exist than install it:
+
+> Remember to run powershell as administrator
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+```
+
+Or just management tools:
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Management-PowerShell
+```
+
+Than in your `ext4.vhdx` file location run (this takes time):
+
+```powershell
+Optimize-VHD -Path "C:\Users\rytsh\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_42thkp1fnegsc\LocalState\ext4.vhdx" -Mode Full
+```
+
+> Use windirstat program easily to find big files https://windirstat.net/
