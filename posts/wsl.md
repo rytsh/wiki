@@ -65,3 +65,18 @@ Optimize-VHD -Path "C:\Users\rytsh\AppData\Local\Packages\CanonicalGroupLimited.
 ```
 
 > Use windirstat program easily to find big files https://windirstat.net/
+
+### xdg-open
+
+Redirect xdg-open to powershell.exe start command, so you can open files from wsl terminal.
+
+```sh
+sudo tee /usr/local/bin/xdg-open <<EOF
+#!/bin/sh
+
+powershell.exe -c start "'\$@'"
+EOF
+sudo chmod +x /usr/local/bin/xdg-open
+```
+
+> https://stackoverflow.com/questions/56633006/open-windows-native-exe-program-via-xdg-open-in-wsl
