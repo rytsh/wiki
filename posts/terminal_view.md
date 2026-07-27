@@ -56,8 +56,36 @@ fi
 
 ## Zsh
 
-Useful for macOS. Just use ohmyzsh https://github.com/ohmyzsh/ohmyzsh
+Add this one to `~/.zshrc`.
 
 ```sh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# Zsh'in değişkenleri okuması için gerekli ayar
+setopt prompt_subst
+
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' formats '|%F{81}%b%f'
+zstyle ':vcs_info:git:*' actionformats '|%F{81}%b|%a%f'
+
+# Renk tanımları (Zsh formatı) - %B ile kalın (bold) yapıyoruz
+local B=$'%B%F{33}'     # Mavi
+local LB=$'%B%F{81}'    # Açık Mavi
+local GY=$'%B%F{242}'   # Gri
+local G=$'%B%F{82}'     # Yeşil
+local P=$'%B%F{161}'    # Pembe
+local PP=$'%B%F{93}'    # Mor
+local R=$'%B%F{196}'    # Kırmızı
+local Y=$'%B%F{214}'    # Sarı
+local W=$'%b%f'         # Sıfırla (bold ve renk kapat)
+
+# Prompt symbol fonksiyonu
+get_prompt_symbol() {
+  [[ $UID == 0 ]] && echo "#" || echo "$"
+}
+
+# Prompt'u ayarla
+# %n: kullanıcı, %m: hostname (makine adı), %~: dizin
+PROMPT="${GY}[${Y}%n${GY}@${P}%m${GY}:${B}%~"'${vcs_info_msg_0_}'"${GY}]${W}"'$(get_prompt_symbol) '
 ```
