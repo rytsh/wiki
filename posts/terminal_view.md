@@ -66,8 +66,11 @@ autoload -Uz vcs_info
 precmd() { vcs_info }
 
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git:*' formats '|%F{81}%b%f'
-zstyle ':vcs_info:git:*' actionformats '|%F{81}%b|%a%f'
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr '%F{82}+%f'
+zstyle ':vcs_info:git:*' unstagedstr '%F{214}*%f'
+zstyle ':vcs_info:git:*' formats '|%F{81}%b%f%c%u'
+zstyle ':vcs_info:git:*' actionformats '|%F{81}%b|%a%f%c%u'
 
 # Renk tanımları (Zsh formatı) - %B ile kalın (bold) yapıyoruz
 local B=$'%B%F{33}'     # Mavi
