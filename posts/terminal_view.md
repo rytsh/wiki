@@ -65,6 +65,14 @@ setopt prompt_subst
 autoload -Uz vcs_info
 precmd() { vcs_info }
 
+# vcs_info untracked dosyalari varsayilan olarak degisiklik saymaz.
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
++vi-git-untracked() {
+  if [[ -z ${hook_com[unstaged]} && -n $(git ls-files --others --exclude-standard 2>/dev/null) ]]; then
+    hook_com[unstaged]='%F{214}*%f'
+  fi
+}
+
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr '%F{82}+%f'
