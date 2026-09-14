@@ -80,3 +80,31 @@ sudo chmod +x /usr/local/bin/xdg-open
 ```
 
 > https://stackoverflow.com/questions/56633006/open-windows-native-exe-program-via-xdg-open-in-wsl
+
+Set browser so golang use that one directly:
+
+```sh
+sudo tee /usr/local/bin/windows-browser >/dev/null <<'EOF'
+#!/bin/sh
+
+url="$1"
+
+case "$url" in
+  file://*)
+    path="${url#file://}"
+    distro="$(wsl.exe -l -q | tr -d '\r' | head -n1)"
+    winpath="\\\\wsl.localhost\\${distro}$(printf '%s' "$path" | sed 's#/#\\#g')"
+    powershell.exe -NoProfile -Command "Start-Process '$winpath'"
+    ;;
+  *)
+    powershell.exe -NoProfile -Command "Start-Process '$url'"
+    ;;
+esac
+EOF
+
+sudo chmod +x /usr/local/bin/windows-browser
+
+cat <<'EOF' >> ~/.bashrc
+export BROWSER=/usr/local/bin/windows-browser
+EOF
+```
